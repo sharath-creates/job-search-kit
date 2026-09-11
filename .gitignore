@@ -1,0 +1,8 @@
+# Everything personal lives in me/ and never gets committed.
+me/*
+!me/README.md
+!me/EXAMPLE-profile.md
+
+# Local scratch
+*.local.md
+.DS_Store
