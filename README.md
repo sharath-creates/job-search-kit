@@ -139,4 +139,4 @@ me/                    Your answers. Gitignored.
 
 ## License
 
-MIT. Fork it, change the rubric, retune the queries for your market.
+GNU AGPL-3.0. Fork it, change the rubric, retune the queries for your market. If you hand out a modified version, or run one as a service other people use, your changes have to ship under the same licence. Full text in `LICENSE`.
