@@ -30,7 +30,7 @@ Setup schedules six tasks. Each runs on its own, reports what it did, and stops.
 | 5 | Inbox Watch | Twice daily | Reads your email for interview invites, assessment links, and recruiter questions, computes what expires when, and drafts replies |
 | 6 | Weekly Review | Sunday morning | Reconciles the pipeline, audits for duplicates and untailored applications, compares reply rates by role family and by source, and tells you what to retire |
 
-Tasks 1, 2, 5 and 6 run without you present. Tasks 3 and 4 need your browser open, and they hand every real decision back to you.
+Tasks 1, 2, 5 and 6 run in the cloud, so they fire whether or not your laptop is on. Tasks 3 and 4 are created as tasks that require your own computer, because they drive a browser already logged in to the job sites. They hand every real decision back to you.
 
 ### How the review queue works
 
