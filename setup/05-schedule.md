@@ -95,14 +95,41 @@ resulting list into the `Queries` tab of the sheet and into `{{QUERIES_A}}` and
 If the search tool is not Firecrawl, that file's last section covers the syntax
 differences. Adapt the queries before substituting them.
 
-## 4. Create the tasks
+## 4. Decide where each task runs
+
+Two of the six drive a browser that is already logged in to the job sites, so
+they have to run on the person's own machine. The other four touch nothing but
+Google Workspace and the search API, so they belong in the cloud, where they
+fire whether or not that machine is awake.
+
+| Task | Runs | Why |
+|---|---|---|
+| 1 Shortlist Sweep | Cloud | Search API and Sheets only |
+| 2 Sourcing Top-up | Cloud | Search API and Sheets only |
+| 3 Apply Run | Their own computer | Drives a logged-in browser |
+| 4 LinkedIn Prefill | Their own computer | Drives a logged-in browser |
+| 5 Inbox Watch | Cloud | Gmail only |
+| 6 Weekly Review | Cloud | Sheets only |
+
+Create tasks 3 and 4 so that they require that computer. Set the local-device
+requirement as you create the task. If your scheduler cannot express it at
+creation time, create the task anyway and tell the person to switch on
+"Require this computer" for it in the desktop app before the first run.
+
+Get this wrong and nothing shouts. A browser-driving task created in the cloud
+wakes up, finds no browser, and logs an empty run, which reads like "nothing
+matched today" rather than "this was never going to work".
+
+Tasks 1, 2, 5 and 6 stay in the cloud on purpose. Bind them to a laptop and
+they stop the moment it sleeps, and a sweep that skips a day loses the roles
+posted that day.
+
+## 5. Create the tasks
 
 Create each one disabled if the person wants to review first. Otherwise create
-them live.
+them live. Record every ID.
 
-Then create them. Record every ID.
-
-## 5. Record it
+## 6. Record it
 
 Append to `me/setup-state.md`:
 
