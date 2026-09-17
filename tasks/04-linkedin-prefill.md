@@ -6,6 +6,9 @@ everything below the line.
 **Schedule:** per the grid in `setup/05-schedule.md`. Off at light intensity.
 **Name it:** `Job Search - LinkedIn Prefill ({{TIMES}} {{TZ}})`
 **Requires:** a browser connector, with LinkedIn logged in.
+**Runs on:** the person's own computer. Create this as a task that requires that
+device, never as a cloud task. A cloud run finds no browser, logs an empty run,
+and looks like a quiet day rather than a broken task.
 
 **Read this before you create it.** LinkedIn's user agreement prohibits
 automated interaction, and their detection restricts accounts that do it. An
