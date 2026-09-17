@@ -117,6 +117,8 @@ It does not submit anything you have not seen. It does not scrape profiles or co
 
 It removes the hours between deciding to apply and having applied. That is the whole product.
 
+That being said, you can automate the application by telling claude to apply through the claude in chrome extension. It will do the final click for you.
+
 ## Using this with Codex or another agent
 
 `AGENTS.md` mirrors `CLAUDE.md` for agents that read that convention. `docs/codex.md` covers the three changes you need: scheduling through cron or Task Scheduler instead of Claude's scheduled tasks, local CSV files instead of Google Sheets if you have no connector, and the search tool swap.
