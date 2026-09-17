@@ -1,12 +1,11 @@
 # Job Search Kit
 
-A job search that runs itself, built for people who have never used an AI tool
-before. Clone this repo, open it in Claude, and say "set me up". Claude
+A job search that runs itself, built for people like me who do not have the time to apply to jobs because of their work. Clone this repo, open it in Claude, and say "set me up". Claude
 interviews you for about forty minutes, builds your tracking sheet, writes your
 CV bank, and schedules six recurring tasks that source roles, tailor your CV,
 prepare applications, and watch your inbox for replies you would otherwise miss.
 
-You do not write prompts. You answer questions.
+P.S. This requires Claude Pro or ChatGPT plus to work which costs about 2000 per month.
 
 ---
 
@@ -66,12 +65,13 @@ until it works.
    small edit, documented in `reference/search-queries.md`.
 4. **Your current CV**, in any format.
 5. **Forty minutes**, once. After that the system runs on its own.
+6. **Personal laptop/PC**, one that's always on and at your home applying for you.
 
 Optional: the Claude in Chrome extension, if you want tasks 3 and 4. Skip them
 and the other four still work.
 
 ---
-
+You can install git for windows here : //CLaude you need to fill this
 ## Install
 
 ```bash
