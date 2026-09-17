@@ -6,6 +6,9 @@ everything below the line.
 **Schedule:** per the grid in `setup/05-schedule.md`.
 **Name it:** `Job Search - Apply Run (every {{INTERVAL}}, {{WINDOW}} {{TZ}})`
 **Requires:** a browser connector with the job sites logged in.
+**Runs on:** the person's own computer. Create this as a task that requires that
+device, never as a cloud task. A cloud run finds no browser, logs an empty run,
+and looks like a quiet day rather than a broken task.
 
 **Read this before you create it.** This is the only task that touches a
 submit button, and the caps are what stop it from becoming a spray machine.
