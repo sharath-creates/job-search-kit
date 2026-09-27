@@ -23,18 +23,27 @@ The cost of getting this wrong is roughly 30,000 tokens per run, across about
 
 ## 1. Confirm the schedule
 
-Convert from `me/profile.md`. Times below are local; convert each to UTC using
-their timezone before creating anything, and shift the day-of-week field if the
-conversion crosses midnight.
+Work out their timezone from the city in `me/profile.md`. Do not ask for it;
+the grid below shows it, and they can correct it there.
+
+Times below are local. If the scheduler accepts a timezone, give it theirs and
+the local times as written. Convert to UTC only when it does not, and then
+shift the day-of-week field if the conversion crosses midnight. A wrong
+conversion is the usual cause of two apply runs firing in the same hour.
 
 | Task | Light | Standard | Heavy |
 |------|-------|----------|-------|
 | 1 Shortlist Sweep | 07:00 Mon, Wed, Fri | 07:00 Mon-Sat | 07:00 daily |
 | 2 Sourcing Top-up | off | 13:00 Mon-Sat | 13:00 and 17:00 daily |
 | 3 Apply Run | 10:00 and 16:00 Mon-Fri | every 3h, 09:00-21:00 Mon-Fri | every 2h, 09:00-21:00 Mon-Fri |
-| 4 LinkedIn Prefill | off | 11:00 and 14:00 Mon-Fri | 11:00, 14:00, 17:00 Mon-Fri |
+| 4 LinkedIn Prefill | 12:00 and 19:00 Mon-Fri | 10:30 and 19:30 Mon-Fri | 10:00 and 20:00 Mon-Fri |
 | 5 Inbox Watch | 08:00 daily | 08:00 and 20:00 daily | 08:00, 14:00, 20:00 daily |
 | 6 Weekly Review | 10:00 Sunday | 10:00 Sunday | 10:00 Sunday |
+
+LinkedIn Prefill saves each filled application to the person's LinkedIn
+Saved jobs, so they can review it whenever they are free. Its two runs sit
+between apply runs at every level, because both tasks drive the same browser.
+Keep them apart if you move either one.
 
 Caps by level:
 
@@ -44,12 +53,18 @@ Caps by level:
 | Applications per day, all runs | 4 | 8 | 12 |
 | Search calls per sweep | 6 | 10 | 14 |
 | Pages fetched for scoring per sweep | 8 | 15 | 20 |
+| LinkedIn postings read per title, per run | 3 | 5 | 8 |
+| LinkedIn roles filled per day, both runs | 75 | 75 | 75 |
+
+The LinkedIn daily cap is 75 at every level because LinkedIn limits how many
+Easy Apply applications an account can send in a day. The read cap usually
+keeps a day well under it.
 
 Show the person their grid and ask:
 
-> Here's the schedule. Times are yours, local. Anything you want moved?
+> Here's the schedule, in <timezone> time. Anything you want moved?
 
-If they said no to browser tasks in step 0, drop tasks 3 and 4 and say so.
+If `me/profile.md` says no to browser tasks, drop tasks 3 and 4 and say so.
 
 ## 2. Fill the templates
 
@@ -76,12 +91,31 @@ create the scheduled task with the filled text as its prompt.
 | `{{ANSWER_SHEET_DOC}}` | Drive copy of the answer sheet |
 | `{{PER_RUN_CAP}}` `{{PER_DAY_CAP}}` | From the caps table |
 | `{{SEARCH_CALLS}}` `{{FETCH_CAP}}` | From the caps table |
+| `{{LINKEDIN_READ_CAP}}` `{{LINKEDIN_DAY_CAP}}` | From the caps table |
 | `{{WEEKLY_SEARCH_CALLS}}` | Twice `{{SEARCH_CALLS}}`, capped at 20 |
 | `{{SEARCH_TOOL}}` | Search connector name |
 | `{{TZ}}` `{{TIME}}` `{{TIMES}}` `{{INTERVAL}}` `{{WINDOW}}` | Their timezone and the local times from the schedule grid. These appear in task names, not in prompt bodies. |
+| `{{APPROVAL_RULE}}` | The submission mode from the profile. See the table below. |
+| `{{APPROVAL_NOTE}}` | The submission mode from the profile. See the table below. |
+| `{{LINKEDIN_SUBMIT_RULE}}` | The LinkedIn mode from the profile. See the table below. |
 | `{{QUERIES_A}}` `{{QUERIES_B}}` | Built in the next section |
 | `{{TOPUP_QUERY_1}}` to `{{TOPUP_QUERY_4}}` | The four highest-yield queries from the set, one per domain tier |
 | `{{BOARD_DOMAINS}}` `{{BOARD_DOMAINS_PRIMARY}}` `{{BOARD_DOMAINS_SECONDARY}}` `{{REGIONAL_DOMAINS}}` `{{NOISE_DOMAINS}}` | The domain tier lists in `reference/search-queries.md`, narrowed to their locations |
+
+The two approval placeholders take one of these fixed texts:
+
+| Mode | `{{APPROVAL_RULE}}` (task 3) | `{{APPROVAL_NOTE}}` (task 1) |
+|---|---|---|
+| You approve | `Only rows whose Approve cell is ticked, or reads yes, y or x. An unticked row waits, however well it scores.` | `Tick Approve in the sheet on the ones you want sent. The next apply run sends them.` |
+| Automatic | `Every row that passes the guards below. The person chose automatic submission within these caps.` | `The apply runs send these within your daily cap. Set Status to Withdrawn on any you want to skip.` |
+| No browser tasks | Task 3 is not created. | `Apply from the links above. The tailored CV and cover note for each sit in its Drive folder. Set Status to Applied when you send one, or the weekly review will pick up the confirmation email.` |
+
+`{{LINKEDIN_SUBMIT_RULE}}` (task 4) takes one of these:
+
+| LinkedIn mode | `{{LINKEDIN_SUBMIT_RULE}}` |
+|---|---|
+| You click | `Never click Submit or Send application. Fill each form, then save it for the person to review and submit.` |
+| Automatic | `The person chose automatic submission on LinkedIn and accepted the risk to their account. Click Submit only when every field came from the answer sheet and nothing was left blank or flagged. Save the rest for the person.` |
 
 Verify before creating each task: no `{{` remains anywhere in the prompt.
 
@@ -126,8 +160,9 @@ posted that day.
 
 ## 5. Create the tasks
 
-Create each one disabled if the person wants to review first. Otherwise create
-them live. Record every ID.
+Create them live and record every ID. Do not ask whether to start them
+disabled: the person can stop everything by saying "pause my search", so a
+disabled start only adds a step they have to remember.
 
 ## 6. Record it
 
@@ -140,6 +175,8 @@ Append to `me/setup-state.md`:
 
 ## Settings
 - Intensity: <level>
+- Submission: <you approve / automatic / not applicable>
+- LinkedIn: <you click / automatic / not applicable>
 - Per-run cap: <N>, per-day cap: <N>
 - Search calls per sweep: <N>, credits per month estimated: <N>
 - Timezone: <tz>
@@ -153,17 +190,34 @@ Mark all steps done.
 
 > Everything's live. Here's what happens next:
 >
-> - Tomorrow at <time>, the first sweep runs and fills your sheet.
-> - At <time>, inbox watch starts checking for replies.
-> - Nothing gets submitted without you.
+> - Tomorrow at <time>, the first sweep runs. From then on you get one email
+>   each morning: new roles worth your time, what went out yesterday, and
+>   anything waiting on you. No email means nothing needed you.
+> - Inbox watch checks for interview invites and test links at <times>, and
+>   emails you only when one needs action.
+> - <You approve: Tick Approve in the sheet on the roles you want sent, from
+>   your phone if you like. Nothing goes out without that tick.>
+>   <Automatic: Apply runs send up to <N> a day. Set a row's Status to
+>   Withdrawn to stop one.>
+>   <No browser tasks: Apply from the links in the morning email. Each one
+>   has a tailored CV waiting in Drive.>
+> - <LinkedIn, you click: Twice each weekday I fill in LinkedIn Easy Apply
+>   forms for roles scoring 70 or above and save them. Open Saved jobs on
+>   LinkedIn, check each one, and click Submit.>
+>   <LinkedIn, automatic: Twice each weekday I submit LinkedIn Easy Apply
+>   forms for roles scoring 70 or above, up to 75 a day, and save any I
+>   couldn't fill in completely for you to finish.>
 >
 > Give it three days before you judge it. The first sweep usually finds more
 > than the rest because it has no history to dedupe against.
 >
-> Two things to do yourself:
+> Things you can say to me any time:
 >
-> 1. Open <sheet URL> tomorrow and look at what scored above 70. If the roles
->    look wrong, tell me and I'll retune the queries.
-> 2. Say "job search status" any time for a summary.
+> - "job search status" for a summary
+> - "pause my search", and "resume my search" when you're back
+> - "the roles look wrong", and I'll retune the queries
+> - "make my search cheaper"
+>
+> Your sheet: <sheet URL>
 
 If the person wants to change anything later, read `setup/06-tuning.md`.

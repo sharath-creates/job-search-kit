@@ -31,9 +31,12 @@ Calibration companies: Whatfix, MoEngage, Freshworks
 - Remote: hybrid or fully remote
 - Relocation: yes to Bangalore, never outside India
 - Working hours excluded: US and AMER shifts
+- Work authorisation: India, allowed, no sponsorship needed
 
 ## Floor
 - Minimum total compensation: INR 24,00,000
+- Expected compensation: INR 30,00,000
+- Current compensation: not stated
 - Notice period: 60 days
 - Interview availability: weekdays before 10:00 and after 18:30 IST
 
@@ -48,3 +51,6 @@ Calibration companies: Whatfix, MoEngage, Freshworks
 - Level: standard
 - Applications per run: 2
 - Applications per day: 8
+- Browser tasks: yes
+- Submission: you approve
+- LinkedIn: you click

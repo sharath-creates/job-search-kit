@@ -12,12 +12,16 @@ it. The rubric is what stops the system applying to everything it finds.
 | 0 | Auto-failed. Not recorded. |
 | 1-54 | Discarded. Not recorded. |
 | 55-69 | Written to Pipeline as Shortlisted. No CV tailored. Available if the queue runs dry. |
-| 70-100 | Written to Pipeline, CV tailored, eligible for an apply run. |
+| 70-100 | Written to Pipeline, CV tailored, Status set to Tailored, eligible for an apply run. In approve mode it waits for the person's tick. |
 
 Keyword coverage gates separately. A role scoring 85 with 45% coverage does not
 get applied to, because the CV bank cannot produce a CV that matches its job
 description. That combination means the role sounds right and reads wrong, and
 it is worth telling the person about.
+
+LinkedIn Easy Apply uses the score bands and skips the coverage gate. It sends
+the CV saved on the person's LinkedIn account, so there is no tailored CV to
+measure. Tailoring and the coverage gate apply to company-site applications.
 
 ---
 

@@ -7,24 +7,26 @@ running setup.
 
 ## Read this first, then stop reading
 
-This file is the router. Load one other file per turn, only the one the current
-phase needs. Do not read the whole repo.
+This file is the router. Load one step file at a time, only the one the
+current phase needs. Do not read the whole repo.
 
 ## Where you are
 
-Check whether `me/profile.md` exists.
+Check whether `me/setup-state.md` exists.
 
 | State | What to do |
 |---|---|
-| `me/` has only `README.md` | Read `docs/codex.md`, then `setup/00-prerequisites.md`, and follow it. |
-| `me/profile.md` exists, `me/setup-state.md` says setup is incomplete | Read the next unfinished step named in `me/setup-state.md`. |
-| Setup complete | Answer the question in front of you. For changes, read `setup/06-tuning.md`. |
+| No `me/setup-state.md` | Read `docs/codex.md`, then `setup/00-prerequisites.md`, and follow it. |
+| `me/setup-state.md` has a step marked `next` | Read that step's file and continue. |
+| Every step in `me/setup-state.md` is `done` | Answer the question in front of you. For changes, read `setup/06-tuning.md`. |
 
 ## Rules that hold in every phase
 
-1. One step at a time. Finish a step, write its output, report, then stop.
-2. Ask before you assume. Ask one question in plain language and wait.
-3. Never submit an application. Setup finds, scores and drafts.
+1. Stop at every question. A step that needs nothing from the person runs
+   straight into the next one.
+2. Propose, then confirm. If the CV or an earlier answer holds it, state it
+   and ask for corrections. Otherwise ask one plain question and wait.
+3. Never submit an application during setup. Setup finds, scores and drafts.
 4. Write outputs to `me/`. That folder is gitignored.
 5. Obey `reference/token-budget.md`. Generated task files must be
    self-contained so a scheduled run loads nothing from this repo.

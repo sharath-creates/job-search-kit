@@ -43,8 +43,10 @@ DO NOT APPLY TO ANYTHING. This task finds, scores, tailors and records only.
    filter parameter. Do not set an include list and an exclude list on the same
    call. Zero results means log it and move on, with no retry.
 
-3. DEDUPE. Drop anything already in the Pipeline tab, and anything from a
-   company that received an application in the last 14 days.
+3. DEDUPE. Read only the Pipeline columns this run uses: Date found, Company,
+   Role, Location, URL, Score, Coverage %, Status, Date applied, Question for
+   you. Drop anything already in the Pipeline tab, and anything from a company
+   that received an application in the last 14 days.
 
 4. SCORE. Fetch at most {{FETCH_CAP}} of the new postings, newest first. Score
    each out of 100:
@@ -69,16 +71,28 @@ DO NOT APPLY TO ANYTHING. This task finds, scores, tailors and records only.
    d. Write a 150-word cover note using the stock "why this role" answer with
       the company-specific slot filled from the posting.
    e. Save both to Drive at "{{DRIVE_ROOT}}/Applications/<date>/<company>-<role>/".
-   f. Record the keyword coverage percentage in the Pipeline row.
-   Below 60% coverage, do not tailor. Move the row to the 55-69 band and note
+   f. In the Pipeline row, record the keyword coverage percentage and the CV
+      file link, and set Status to "Tailored".
+   Below 60% coverage, do not tailor. Leave the row as "Shortlisted" and note
    the reason.
 
 7. LOG. Append one row to the Log tab: date, task name, search calls used,
    credits used, pages fetched, roles found, roles scoring 70+, roles tailored.
 
-8. REPORT by email to {{EMAIL}}, only if something scored 70 or above. Subject
-   "Shortlist <date> - N roles ready". List each with score, keyword coverage,
-   company, role, location and URL. Add one line with credits used this month.
-   If nothing scored 70+, send nothing. Silence is a valid outcome.
+8. REPORT by email to {{EMAIL}}. This is their one daily email from the job
+   search, so gather everything into it:
+   - READY: every row at Status "Tailored" found since the previous Shortlist
+     Sweep row in the Log tab, with score, keyword coverage, company, role,
+     location and URL. {{APPROVAL_NOTE}}
+   - SENT: company and role for every Pipeline row applied to since the
+     previous Shortlist Sweep row in the Log tab.
+   - WAITING ON YOU: every row with Status "Needs you", with its Question for
+     you cell, and a reminder that typing an answer in Your answer lets the
+     next apply run finish it. Then one line counting older rows still at
+     "Tailored", and one counting rows at "Prefilled" that sit in their
+     LinkedIn Saved jobs waiting for their click.
+   Subject "Job search <date> - N ready, M sent, K need you". Add one line
+   with credits used this month and the sheet link. If READY, SENT and
+   WAITING ON YOU are all empty, send nothing. Silence is a valid outcome.
 
 If a tool is unreachable, stop and say which one. Do not retry more than once.

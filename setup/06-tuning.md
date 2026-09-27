@@ -8,6 +8,81 @@ prompt carries the person's details rather than reading them at run time.
 
 ---
 
+## "Pause my search"
+
+Disable every scheduled task in the Tasks table of `me/setup-state.md`. Do not
+delete them. Add `Paused: <today's date>` under Settings, and a note in the
+sheet's Log tab so the weekly review does not read the gap as a failure.
+
+If they give a return date, write it next to the pause line and tell them to
+say "resume my search" on that day. The kit does not resume on its own.
+
+## "Resume my search"
+
+Re-enable every task that was enabled before the pause, remove the pause line,
+and add a Log note. Tell them when the next sweep fires.
+
+## "Switch to automatic" or "I want to approve each one"
+
+This covers applications on company sites. LinkedIn has its own switch,
+below. If the person says "automatic" without saying which, ask.
+
+Change `Submission` in `me/profile.md` and `me/setup-state.md`. Then update two
+places with the texts in `setup/05-schedule.md`: `{{APPROVAL_RULE}}` in the
+Apply Run prompt, and `{{APPROVAL_NOTE}}` in the Shortlist Sweep prompt.
+
+## "LinkedIn automatic"
+
+Say this once, and wait for a yes:
+
+> LinkedIn's user agreement bans automated applying, and LinkedIn restricts
+> accounts it catches. If yours is restricted mid-search, you lose access to
+> your profile, your messages and your recruiter contacts until they lift
+> it. I'll stop at 75 a day and only submit forms I could fill completely.
+> Still want me to click Submit on LinkedIn?
+
+On a yes, change `LinkedIn` to `automatic` in `me/profile.md` and
+`me/setup-state.md`, and swap `{{LINKEDIN_SUBMIT_RULE}}` in the LinkedIn
+Prefill prompt for the automatic text in `setup/05-schedule.md`.
+
+## "Stop submitting on LinkedIn" or "My LinkedIn got restricted"
+
+Change `LinkedIn` back to `you click` and swap in the you-click text. After a
+restriction, also disable LinkedIn Prefill until the person says LinkedIn has
+lifted it, and add a Log note saying why.
+
+## "Turn on apply runs"
+
+For someone who skipped the browser tasks during setup. Confirm a browser
+connector is reachable, ask the submission question from block 6 of
+`setup/01-discovery.md`, then create tasks 3 and 4 as `setup/05-schedule.md`
+describes, bound to this computer. Update `{{APPROVAL_NOTE}}` in task 1 to
+match.
+
+## "Update my tasks" or "Make it quieter"
+
+For someone who downloaded a newer version of this kit, or whose tasks predate
+the one-email-a-day design. For each task in `me/setup-state.md`:
+
+1. Read the current prompt of the scheduled task. It holds values setup
+   chose and `me/` does not, such as the query set and the domain lists.
+2. Re-fill the matching template in `tasks/` from those values,
+   `me/profile.md` and `me/setup-state.md`, as `setup/05-schedule.md`
+   describes. Add the Pipeline columns from `reference/sheet-schema.md` if
+   the sheet lacks them, and move every `Shortlisted` row that already has a
+   CV file and 60% coverage or above to `Tailored`, since older sweeps never
+   set that status.
+3. Update the scheduled task in place, keeping its ID and schedule. For
+   LinkedIn Prefill, move it to the two weekday slots in the grid, since it
+   now runs twice a day and saves its forms.
+
+If `me/profile.md` has no `Submission` line, ask the submission question from
+block 6 of `setup/01-discovery.md` before step 2, since older versions of the
+Apply Run submitted without asking. If it has no `LinkedIn` line, use `you
+click`.
+
+Report which tasks changed and what they now do differently, in one line each.
+
 ## "Nothing good is showing up"
 
 Diagnose in this order. Stop at the first cause you find.
@@ -36,9 +111,12 @@ In order of savings:
 1. Drop task 2 entirely. It is the redundant one.
 2. Cut `{{FETCH_CAP}}` from 15 to 8. Scoring fetches are the largest single
    cost in a sweep.
-3. Cut `{{SEARCH_CALLS}}` from 10 to 6.
-4. Move task 1 from daily to Monday, Wednesday, Friday.
-5. Move apply runs from every three hours to twice a day.
+3. Cut `{{LINKEDIN_READ_CAP}}` by two, or run LinkedIn Prefill once a day.
+   It reads postings in the browser, which costs tokens but no search
+   credits, and it reads per title, so the cost grows with the title list.
+4. Cut `{{SEARCH_CALLS}}` from 10 to 6.
+5. Move task 1 from daily to Monday, Wednesday, Friday.
+6. Move apply runs from every three hours to twice a day.
 
 Never save tokens by having a task read the repo, by removing the dedupe step,
 or by dropping the tailoring step. Each of those costs more than it saves.
@@ -70,5 +148,5 @@ ever tell them.
 
 ## "Start over"
 
-Delete the four files in `me/`, disable the tasks, and read
-`setup/00-prerequisites.md`.
+Delete `profile.md`, `answer-sheet.md` and `setup-state.md` from `me/`, disable
+the tasks, and read `setup/00-prerequisites.md`. Leave their CV where it is.

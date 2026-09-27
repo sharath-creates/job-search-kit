@@ -35,6 +35,29 @@ The interview pushes back exactly once, on the question that matters, and
 accepts the answer if they insist. That is the right amount of friction for a
 tool nobody is paid to use.
 
+## Propose, then confirm
+
+The CV answers about a third of the interview, so setup reads it first and
+asks the person to correct what it found. Where the CV is silent, setup
+proposes a default (locations, interview windows, auto-fails, intensity) and
+asks for corrections. Correcting a proposal takes one line. Answering a blank
+question takes thought, and thought is where people abandon a setup.
+
+Two things are never proposed: money and voluntary disclosure. A guessed
+salary floor can undercut the person on a form, and a guessed disclosure
+answer is an inference the kit has no business making.
+
+## The sheet is the review surface
+
+The person this kit serves is at work when the tasks run. Anything that needs
+them at the home computer within the hour fails them. The sheet opens on a
+phone, so every decision the system hands back goes there: the Approve tick,
+the question a form asked, their answer. The next run picks it up.
+
+Email follows the same logic. One morning email carries everything routine.
+The only other emails are an inbox reply that expires, a form question, or
+LinkedIn forms waiting for a click. A task with nothing to say sends nothing.
+
 ## Task prompts carry data, they do not fetch it
 
 The alternative design has each scheduled run read `me/profile.md`. It is
@@ -55,13 +78,35 @@ shareable with nothing personal in it.
 `me/` is gitignored so the fork a person publishes carries no salary floor and
 no email address.
 
-## Six tasks, five of which never touch a submit button
+## Two tasks can submit, and both default to asking first
 
-Only the apply run submits, and it stops on six named conditions. The LinkedIn
-task never submits at all, because LinkedIn's user agreement prohibits automated
-interaction and their detection restricts accounts that do it. The boundary is
-stated in the template itself rather than left to the agent's discretion, so a
-person editing the prompt sees why it is there.
+The apply run submits on company sites, and it stops on six named conditions.
+By default it submits only the roles the person ticked in the sheet. Setup
+offers automatic submission within the caps as an opt-in, for people who would
+rather not tick.
+
+LinkedIn Prefill fills in every Easy Apply form that scores 70 or above, then
+saves the application and the job, so the person reviews and submits from
+their Saved jobs at any time. LinkedIn's user agreement prohibits automated
+interaction and their detection restricts accounts that do it, so automatic
+LinkedIn submission is a separate opt-in. The person asks for it by name,
+hears the risk, and confirms. It then submits only forms filled in completely
+from the answer sheet. Both modes stop at 75 roles a day, because LinkedIn
+limits how many Easy Apply applications an account can send in a day. The boundary is stated in the
+template itself rather than left to the agent's discretion, so a person
+editing the prompt sees why it is there.
+
+## Tailoring is for company sites
+
+Tailored CVs go only to applications on company job boards and applicant
+tracking systems. Those systems rank a CV on keyword overlap with the job
+description, so a tailored CV changes where it lands. LinkedIn Easy Apply
+sends the CV saved on the person's LinkedIn account. It keeps the 70-point
+score cutoff, so the bar on which roles to apply for stays the same across
+both routes.
+
+The weekly review compares reply rates by source, which shows whether Easy
+Apply with the LinkedIn CV earns its place.
 
 ## What the kit deliberately does not do
 

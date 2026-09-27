@@ -17,11 +17,17 @@ Weekly job search review for {{NAME}} ({{EMAIL}}). {{DEADLINE_LINE}}
 1. RECONCILE. Search Gmail for replies to applications from the last 21 days:
    confirmations, recruiter screens, rejections, interview invites, assessment
    links. Update the Status column in the Pipeline tab of Google Sheet
-   "{{SHEET_NAME}}".
+   "{{SHEET_NAME}}". A confirmation for a row at "Prefilled" or "Needs you"
+   means the person submitted it themselves: set it to "Applied".
+
+   Set Status to "Expired" on any row still at "Shortlisted", "Tailored" or
+   "Prefilled" whose posting is now more than 30 days old, so the queue only
+   holds roles still worth sending.
 
 2. FOLLOW UP. List applications past their follow-up date with no reply. Draft
    a short follow-up to the recruiter or careers address where one exists. Save
-   as Gmail drafts. Do not send.
+   as Gmail drafts. Do not send. Skip any that already have a follow-up draft
+   or a sent follow-up, so drafts do not pile up week after week.
 
 3. DEEP DISCOVERY. {{SEARCH_TOOL}}, hard cap {{WEEKLY_SEARCH_CALLS}} calls at
    limit 10. Find companies hiring {{FAMILY_A_TITLES}} or {{FAMILY_B_TITLES}}
@@ -38,7 +44,8 @@ Weekly job search review for {{NAME}} ({{EMAIL}}). {{DEADLINE_LINE}}
 6. TAILORING AUDIT. Check that every row marked Applied has a tailored CV
    recorded and a keyword coverage percentage. Flag any that went out without
    one. Applying with a generic CV is the single largest cause of a low reply
-   rate.
+   rate. Rows with Source "LinkedIn Easy Apply" use the person's LinkedIn CV
+   by design, so leave them out of this audit.
 
 7. CONVERSION CHECK. Compare reply rate by family (A: {{FAMILY_A}},
    B: {{FAMILY_B}}) and by source (company boards, each applicant tracking
