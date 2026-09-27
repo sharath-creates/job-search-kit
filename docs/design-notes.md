@@ -91,7 +91,8 @@ their Saved jobs at any time. LinkedIn's user agreement prohibits automated
 interaction and their detection restricts accounts that do it, so automatic
 LinkedIn submission is a separate opt-in. The person asks for it by name,
 hears the risk, and confirms. It then submits only forms filled in completely
-from the answer sheet, under its own daily cap. The boundary is stated in the
+from the answer sheet. Both modes stop at 75 roles a day, because LinkedIn
+limits how many Easy Apply applications an account can send in a day. The boundary is stated in the
 template itself rather than left to the agent's discretion, so a person
 editing the prompt sees why it is there.
 

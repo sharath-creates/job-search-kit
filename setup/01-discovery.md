@@ -163,7 +163,7 @@ If step 0 found a browser connector, add this to the same message:
 > application and asks you in the sheet.
 >
 > On LinkedIn, I fill in every Easy Apply form that scores 70 or above, twice
-> a day, and save the job. You open Saved jobs on LinkedIn, check the answers,
+> a day and up to 75 a day, and save the job. You open Saved jobs on LinkedIn, check the answers,
 > and click Submit. I can click Submit for you instead, but LinkedIn's user
 > agreement bans automated applying, and accounts get restricted for it. Say
 > "LinkedIn automatic" only if you accept that risk.

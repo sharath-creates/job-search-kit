@@ -26,7 +26,7 @@ Setup schedules six tasks. Each runs on its own, records what it did in your she
 | 1 | Shortlist Sweep | Daily, early morning | Polls company job boards, runs a capped set of searches, scores every new role out of 100, tailors a CV for the best ones, and sends your one morning email |
 | 2 | Sourcing Top-up | Daily, midday | A cheaper second pass that keeps the queue full between the sweep and the apply runs |
 | 3 | Apply Run | Every few hours on weekdays | Takes the tailored roles you ticked in the sheet, attaches the CV built for each, fills the form, and submits. Any question it cannot answer goes back to you in the sheet. |
-| 4 | LinkedIn Prefill | Twice on weekdays | Searches Easy Apply roles for each title you target, scores them out of 100, fills in every one scoring 70+ with your answer-sheet details and the CV on your LinkedIn account, and saves it. You open Saved jobs on LinkedIn, check it, and click Submit. |
+| 4 | LinkedIn Prefill | Twice on weekdays | Searches Easy Apply roles for each title you target, scores them out of 100, fills in every one scoring 70+ (up to 75 a day) with your answer-sheet details and the CV on your LinkedIn account, and saves it. You open Saved jobs on LinkedIn, check it, and click Submit. |
 | 5 | Inbox Watch | Twice daily | Reads your email for interview invites, assessment links, and recruiter questions, computes what expires when, drafts replies, and emails you only when something needs action |
 | 6 | Weekly Review | Sunday morning | Reconciles the pipeline, audits for duplicates and untailored applications, compares reply rates by role family and by source, and tells you what to retire |
 
@@ -119,9 +119,9 @@ These are built into every task and are worth knowing before you turn anything o
 
 ### On LinkedIn automation
 
-LinkedIn's User Agreement prohibits automated applying, and that applies to locally-run browser tools as much as to anything in the cloud. By default this kit fills in every Easy Apply form that scores 70 or above, saves the job, and leaves the submit button to you. Open Saved jobs on LinkedIn whenever you have a few minutes, check each one, and click Submit.
+LinkedIn's User Agreement prohibits automated applying, and that applies to locally-run browser tools as much as to anything in the cloud. By default this kit fills in every Easy Apply form that scores 70 or above, up to 75 a day, saves the job, and leaves the submit button to you. Open Saved jobs on LinkedIn whenever you have a few minutes, check each one, and click Submit.
 
-The task on your computer can click Submit for you. Say "LinkedIn automatic" during setup or later, and it submits the forms it could fill in completely, up to your daily cap, and saves the rest for you. Claude states the risk once and asks you to confirm before turning it on. Accounts get restricted for automated activity, and losing your LinkedIn mid-search costs you far more than the minutes you save. If it happens, say "my LinkedIn got restricted" and Claude stops the LinkedIn task.
+The task on your computer can click Submit for you. Say "LinkedIn automatic" during setup or later, and it submits the forms it could fill in completely and saves the rest for you. Claude states the risk once and asks you to confirm before turning it on. Accounts get restricted for automated activity, and losing your LinkedIn mid-search costs you far more than the minutes you save. If it happens, say "my LinkedIn got restricted" and Claude stops the LinkedIn task.
 
 If you modify this to auto-submit, that is your account and your call, and it is not what this kit does.
 

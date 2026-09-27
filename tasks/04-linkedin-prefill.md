@@ -28,6 +28,12 @@ WHO THEY ARE: {{CURRENT_ROLE}}. {{YEARS}} years of experience. Based in {{CITY}}
 
 SUBMITTING: {{LINKEDIN_SUBMIT_RULE}}
 
+DAILY CAP: at most {{LINKEDIN_DAY_CAP}} roles per calendar day across both
+runs, saved and submitted together. LinkedIn limits how many Easy Apply
+applications an account can send in a day. Before you start, count the
+Pipeline rows with Source "LinkedIn Easy Apply" and today's Date found, and
+stop filling when the count reaches the cap.
+
 1. Read the Google Doc "{{ANSWER_SHEET_DOC}}". Open the Pipeline and Log tabs
    of Google Sheet "{{SHEET_NAME}}". Note when the previous LinkedIn Prefill
    run started, from its Log row.
@@ -56,9 +62,11 @@ SUBMITTING: {{LINKEDIN_SUBMIT_RULE}}
      already has a role at "Prefilled", so a second saved role cannot break
      the 14-day company cooldown
 
-4. SCORE. For each title, open at most {{LINKEDIN_READ_CAP}} of the remaining
-   postings, newest first, and read each job description. Score each out of
-   100 with the same rubric the morning sweep uses:
+4. SCORE. If today's count has already reached the daily cap, write the Log
+   row and stop. Otherwise, for each title, open at most
+   {{LINKEDIN_READ_CAP}} of the remaining postings, newest first, and read
+   each job description. Score each out of 100 with the same rubric the
+   morning sweep uses:
    - Years required falls inside {{YEARS_BAND}}: 25
    - Overlap with their skills and tools: 25
    - Location is one of {{LOCATIONS}}: 20
@@ -70,16 +78,18 @@ SUBMITTING: {{LINKEDIN_SUBMIT_RULE}}
    70, write the Log row and stop. An empty run is correct. Never lower the
    bar to fill the run.
 
-5. FILL every role scoring 70 or above, highest score first. Click Easy Apply
-   and fill every field from the answer sheet: contact details, current and
-   expected compensation, notice period and earliest joining date, location
-   and relocation, work authorisation, years of experience, and the
-   screening questions.
+5. FILL every role scoring 70 or above, highest score first, until the daily
+   cap is reached. Click Easy Apply and fill every field from the answer
+   sheet: contact details, current and expected compensation, notice period
+   and earliest joining date, location and relocation, work authorisation,
+   years of experience, and the screening questions. Leave optional extras such as "Mark job as a top
+   choice" unticked. Those picks are limited, so they are the person's call.
 
    CV: use the CV already saved on their LinkedIn account. Keep the one the
-   form selects, or pick the most recent if it selects none. Never upload,
-   build or tailor a CV here. Tailored CVs are for applications on company
-   sites, which the apply run handles.
+   form selects, or pick the most recent if it selects none. Never upload a
+   file, and never build or tailor a CV here. LinkedIn does not keep uploaded
+   files in a saved application, and tailored CVs are for applications on
+   company sites, which the apply run handles.
 
    Leave a field blank and flag it when:
    - the answer sheet does not cover it
@@ -88,14 +98,20 @@ SUBMITTING: {{LINKEDIN_SUBMIT_RULE}}
    Relocation questions about {{CITY}} are not blockers. Answer "I am based in
    {{CITY}}".
 
-6. FINISH each one as SUBMITTING says. To save one for the person: go through
-   to the final review screen, close the Easy Apply window, and choose Save
-   when LinkedIn asks whether to save the application, so the filled answers
-   are kept. Then click Save on the job posting itself, so it appears in their
-   Saved jobs. A saved role is never submitted by this task.
+6. FINISH each one as SUBMITTING says. To save one for the person, go through
+   to the final review screen and keep the filled answers with whichever save
+   option LinkedIn offers:
+   - a "Save Draft" button in the form: click it
+   - otherwise close the Easy Apply window, and when LinkedIn asks "Save this
+     application?", click Save
+   Never click Discard. If neither option appears, leave the form open, write
+   "not saved" in the row's Notes cell, and name it in the email.
 
-7. RECORD each in the Pipeline tab with its score, Source "LinkedIn Easy
-   Apply", Source tier 3, CV file "LinkedIn profile CV", and the job URL.
+   Then click Save on the job posting itself, so it appears in their Saved
+   jobs. A saved role is never submitted by this task.
+
+7. RECORD each in the Pipeline tab with today's date as Date found, its
+   score, Source "LinkedIn Easy Apply", Source tier 3, CV file "LinkedIn profile CV", and the job URL.
    Status "Prefilled" for a saved role. Status "Applied" with today's date for
    a submitted one. Without these rows, the dedupe and the weekly review never
    see LinkedIn applications.

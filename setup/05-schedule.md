@@ -54,6 +54,11 @@ Caps by level:
 | Search calls per sweep | 6 | 10 | 14 |
 | Pages fetched for scoring per sweep | 8 | 15 | 20 |
 | LinkedIn postings read per title, per run | 3 | 5 | 8 |
+| LinkedIn roles filled per day, both runs | 75 | 75 | 75 |
+
+The LinkedIn daily cap is 75 at every level because LinkedIn limits how many
+Easy Apply applications an account can send in a day. The read cap usually
+keeps a day well under it.
 
 Show the person their grid and ask:
 
@@ -86,7 +91,7 @@ create the scheduled task with the filled text as its prompt.
 | `{{ANSWER_SHEET_DOC}}` | Drive copy of the answer sheet |
 | `{{PER_RUN_CAP}}` `{{PER_DAY_CAP}}` | From the caps table |
 | `{{SEARCH_CALLS}}` `{{FETCH_CAP}}` | From the caps table |
-| `{{LINKEDIN_READ_CAP}}` | From the caps table |
+| `{{LINKEDIN_READ_CAP}}` `{{LINKEDIN_DAY_CAP}}` | From the caps table |
 | `{{WEEKLY_SEARCH_CALLS}}` | Twice `{{SEARCH_CALLS}}`, capped at 20 |
 | `{{SEARCH_TOOL}}` | Search connector name |
 | `{{TZ}}` `{{TIME}}` `{{TIMES}}` `{{INTERVAL}}` `{{WINDOW}}` | Their timezone and the local times from the schedule grid. These appear in task names, not in prompt bodies. |
@@ -105,13 +110,12 @@ The two approval placeholders take one of these fixed texts:
 | Automatic | `Every row that passes the guards below. The person chose automatic submission within these caps.` | `The apply runs send these within your daily cap. Set Status to Withdrawn on any you want to skip.` |
 | No browser tasks | Task 3 is not created. | `Apply from the links above. The tailored CV and cover note for each sit in its Drive folder. Set Status to Applied when you send one, or the weekly review will pick up the confirmation email.` |
 
-`{{LINKEDIN_SUBMIT_RULE}}` (task 4) takes one of these, and the automatic
-text carries `{{PER_DAY_CAP}}`, which you fill as well:
+`{{LINKEDIN_SUBMIT_RULE}}` (task 4) takes one of these:
 
 | LinkedIn mode | `{{LINKEDIN_SUBMIT_RULE}}` |
 |---|---|
 | You click | `Never click Submit or Send application. Fill each form, then save it for the person to review and submit.` |
-| Automatic | `The person chose automatic submission on LinkedIn and accepted the risk to their account. Click Submit only when every field came from the answer sheet and nothing was left blank or flagged. Save the rest for the person. At most {{PER_DAY_CAP}} LinkedIn submissions per calendar day across both runs, counted separately from company-site applications.` |
+| Automatic | `The person chose automatic submission on LinkedIn and accepted the risk to their account. Click Submit only when every field came from the answer sheet and nothing was left blank or flagged. Save the rest for the person.` |
 
 Verify before creating each task: no `{{` remains anywhere in the prompt.
 
@@ -201,7 +205,7 @@ Mark all steps done.
 >   forms for roles scoring 70 or above and save them. Open Saved jobs on
 >   LinkedIn, check each one, and click Submit.>
 >   <LinkedIn, automatic: Twice each weekday I submit LinkedIn Easy Apply
->   forms for roles scoring 70 or above, up to <N> a day, and save any I
+>   forms for roles scoring 70 or above, up to 75 a day, and save any I
 >   couldn't fill in completely for you to finish.>
 >
 > Give it three days before you judge it. The first sweep usually finds more

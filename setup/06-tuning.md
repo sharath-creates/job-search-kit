@@ -38,8 +38,8 @@ Say this once, and wait for a yes:
 > LinkedIn's user agreement bans automated applying, and LinkedIn restricts
 > accounts it catches. If yours is restricted mid-search, you lose access to
 > your profile, your messages and your recruiter contacts until they lift
-> it. I'll keep to your daily cap and only submit forms I could fill
-> completely. Still want me to click Submit on LinkedIn?
+> it. I'll stop at 75 a day and only submit forms I could fill completely.
+> Still want me to click Submit on LinkedIn?
 
 On a yes, change `LinkedIn` to `automatic` in `me/profile.md` and
 `me/setup-state.md`, and swap `{{LINKEDIN_SUBMIT_RULE}}` in the LinkedIn
