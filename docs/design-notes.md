@@ -89,6 +89,18 @@ accounts that do it. The boundary is stated in the template itself rather than
 left to the agent's discretion, so a person editing the prompt sees why it is
 there.
 
+## Tailoring is for company sites
+
+Tailored CVs go only to applications on company job boards and applicant
+tracking systems. Those systems rank a CV on keyword overlap with the job
+description, so a tailored CV changes where it lands. LinkedIn Easy Apply
+sends the CV saved on the person's LinkedIn account. It keeps the 70-point
+score cutoff, so the bar on which roles to apply for stays the same across
+both routes.
+
+The weekly review compares reply rates by source, which shows whether Easy
+Apply with the LinkedIn CV earns its place.
+
 ## What the kit deliberately does not do
 
 - **Write cover letters from scratch per role.** It fills a slot in an answer

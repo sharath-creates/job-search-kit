@@ -19,6 +19,10 @@ get applied to, because the CV bank cannot produce a CV that matches its job
 description. That combination means the role sounds right and reads wrong, and
 it is worth telling the person about.
 
+LinkedIn Easy Apply uses the score bands and skips the coverage gate. It sends
+the CV saved on the person's LinkedIn account, so there is no tailored CV to
+measure. Tailoring and the coverage gate apply to company-site applications.
+
 ---
 
 ## The six components

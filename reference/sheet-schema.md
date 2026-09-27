@@ -29,7 +29,7 @@ One row per posting, from discovery through outcome.
 | Question for you | text | apply run | The exact form question or blocker that stopped a run. |
 | Your answer | text | the person | Their answer to Question for you, or `skip`. The next apply run uses it. |
 | Date applied | date | apply run | |
-| CV file | link | tailoring | The Drive doc used |
+| CV file | link | tailoring | The Drive doc used, or `LinkedIn profile CV` for Easy Apply |
 | Follow-up due | date | apply run | Date applied plus 10 days |
 | Last contact | date | inbox watch | |
 | Notes | text | any | One line. Reasons for stops and skips go here. |

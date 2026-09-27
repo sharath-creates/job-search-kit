@@ -44,7 +44,8 @@ Weekly job search review for {{NAME}} ({{EMAIL}}). {{DEADLINE_LINE}}
 6. TAILORING AUDIT. Check that every row marked Applied has a tailored CV
    recorded and a keyword coverage percentage. Flag any that went out without
    one. Applying with a generic CV is the single largest cause of a low reply
-   rate.
+   rate. Rows with Source "LinkedIn Easy Apply" use the person's LinkedIn CV
+   by design, so leave them out of this audit.
 
 7. CONVERSION CHECK. Compare reply rate by family (A: {{FAMILY_A}},
    B: {{FAMILY_B}}) and by source (company boards, each applicant tracking

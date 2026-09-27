@@ -29,6 +29,7 @@ HOW THIS TASK WORKS: it fills every field and then stops. Never click Submit,
 never click Send application, and never advance past the final review screen.
 
 WHO THEY ARE: {{CURRENT_ROLE}}. {{YEARS}} years of experience. Based in {{CITY}}. {{DEADLINE_LINE}}
+{{BACKGROUND}}
 
 1. Read the Google Doc "{{ANSWER_SHEET_DOC}}". Open the Pipeline tab of
    Google Sheet "{{SHEET_NAME}}".
@@ -49,34 +50,51 @@ WHO THEY ARE: {{CURRENT_ROLE}}. {{YEARS}} years of experience. Based in {{CITY}}
      or "Tailored"
    - any company that received an application in the last 14 days
 
-4. Take at most 5 roles per run. For each, open the Easy Apply flow and fill
-   every field from the answer sheet.
-   CV: if the Pipeline row holds a CV tailored to that role, attach it.
-   Otherwise attach nothing and flag that the role needs tailoring first. Never
-   attach a generic CV.
+4. SCORE. Open at most 10 of the remaining postings, newest first, and read
+   each job description. Score each out of 100 with the same rubric the
+   morning sweep uses:
+   - Years required falls inside {{YEARS_BAND}}: 25
+   - Overlap with their skills and tools: 25
+   - Location is one of {{LOCATIONS}}: 20
+   - Industry or domain adjacency to their background: 15
+   - Posted within 7 days: 10
+   - Compensation disclosed: 5
 
-5. Leave each one on the final review screen, unsubmitted. Do not close the
-   tabs. Record each in the Pipeline tab with Status "Prefilled", Source
-   "LinkedIn Easy Apply", Source tier 3, and the job URL. Update the row if
-   the role is already there. Without this, the dedupe and the weekly review
-   never see LinkedIn applications.
+   Drop anything scoring below 70, and do not record it. If nothing reaches
+   70, write the Log row and stop. An empty run is correct. Never lower the
+   bar to fill the run.
 
-6. Leave a field blank and flag it when:
+5. PREFILL at most 5 of the roles scoring 70 or above, highest score first.
+   For each, open the Easy Apply flow and fill every field from the answer
+   sheet.
+   CV: use the CV already saved on their LinkedIn account. Keep the one the
+   form selects, or pick the most recent if it selects none. Never upload,
+   build or tailor a CV here. Tailored CVs are for applications on company
+   sites, which the apply run handles.
+
+6. Leave each one on the final review screen, unsubmitted. Do not close the
+   tabs. Record each in the Pipeline tab with Status "Prefilled", its score,
+   Source "LinkedIn Easy Apply", Source tier 3, CV file "LinkedIn profile
+   CV", and the job URL. Update the row if the role is already there. Without
+   this, the dedupe and the weekly review never see LinkedIn applications.
+
+7. Leave a field blank and flag it when:
    - the answer sheet does not cover it
    - relocation outside {{LOCATIONS}} is asked
    - a figure below {{FLOOR}} would be needed
    Relocation questions about {{CITY}} are not blockers. Answer "I am based in
    {{CITY}}".
 
-7. If a role also has a posting on the company's own board or an applicant
+8. If a role also has a posting on the company's own board or an applicant
    tracking system, note it so they can apply there instead. Easy Apply has the
    lowest response rate of any channel, because it is frictionless for every
    applicant.
 
-8. Append a row to the Log tab.
+9. Append a row to the Log tab. Count the postings you read under Pages
+   fetched.
 
-9. REPORT by email to {{EMAIL}} only if this run prefilled at least one role.
-   Subject "LinkedIn - <N> ready for your click". List them by company and
-   role, with the tab each is in, plus any fields left blank and why. Remind
-   them these expire with the browser session. If nothing was prefilled, send
-   nothing.
+10. REPORT by email to {{EMAIL}} only if this run prefilled at least one
+    role. Subject "LinkedIn - <N> ready for your click". List them by
+    company, role and score, with the tab each is in, plus any fields left
+    blank and why. Remind them these expire with the browser session. If
+    nothing was prefilled, send nothing.

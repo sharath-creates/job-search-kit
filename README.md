@@ -26,7 +26,7 @@ Setup schedules six tasks. Each runs on its own, records what it did in your she
 | 1 | Shortlist Sweep | Daily, early morning | Polls company job boards, runs a capped set of searches, scores every new role out of 100, tailors a CV for the best ones, and sends your one morning email |
 | 2 | Sourcing Top-up | Daily, midday | A cheaper second pass that keeps the queue full between the sweep and the apply runs |
 | 3 | Apply Run | Every few hours on weekdays | Takes the tailored roles you ticked in the sheet, attaches the CV built for each, fills the form, and submits. Any question it cannot answer goes back to you in the sheet. |
-| 4 | LinkedIn Prefill | Weekday evenings | Fills Easy Apply forms and leaves them open in Chrome. You press submit. |
+| 4 | LinkedIn Prefill | Weekday evenings | Scores Easy Apply roles out of 100, fills the ones scoring 70+ with the CV already on your LinkedIn account, and leaves them open in Chrome. You press submit. |
 | 5 | Inbox Watch | Twice daily | Reads your email for interview invites, assessment links, and recruiter questions, computes what expires when, drafts replies, and emails you only when something needs action |
 | 6 | Weekly Review | Sunday morning | Reconciles the pipeline, audits for duplicates and untailored applications, compares reply rates by role family and by source, and tells you what to retire |
 
@@ -112,7 +112,7 @@ These are built into every task and are worth knowing before you turn anything o
 - **Nothing submits without your say-so.** By default the apply run sends only roles you ticked. If you chose automatic, the caps and stops below are the limit, and you can withdraw any row.
 - **Daily and per-run caps.** A maximum number of applications per run and per day, set during setup. An empty run is a correct result.
 - **A fourteen-day company cooldown.** One company receives at most one application per fortnight.
-- **No generic CVs.** A role without a tailored CV gets skipped and reported, never sent a default file.
+- **No generic CVs on company sites.** A company-site role without a tailored CV gets skipped and reported, never sent a default file. LinkedIn Easy Apply uses the CV on your LinkedIn account.
 - **No LinkedIn automation past the final click.** LinkedIn's user agreement prohibits automated interaction and their detection restricts accounts that do it. Task 4 prepares, then stops.
 - **Hard search caps.** Every task states its exact call count and credit ceiling. A task that finds nothing logs that and exits.
 
