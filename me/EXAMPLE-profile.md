@@ -5,7 +5,7 @@ This file shows what step 1 produces. It is fictional. Your real
 
 ## Identity
 - Name: Priya Raman
-- Email: priya.example@gmail.com
+- Email: priya@example.com
 - Current role: Senior Business Analyst at Meridian Logistics, since March 2023
 - Experience: 5 years
 - Location: Pune

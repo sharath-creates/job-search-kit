@@ -164,6 +164,12 @@ Create them live and record every ID. Do not ask whether to start them
 disabled: the person can stop everything by saying "pause my search", so a
 disabled start only adds a step they have to remember.
 
+Set each task's approval mode to automatic ("Auto" in Claude Cowork). Nobody
+is there to click Allow when a scheduled run fires, so a task left on manual
+approval stalls at its first connector call. If the scheduler will not take
+the mode at creation, tell the person to open each task on the Scheduled page
+and set it themselves.
+
 ## 6. Record it
 
 Append to `me/setup-state.md`:

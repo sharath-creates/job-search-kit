@@ -84,20 +84,20 @@ Rules that matter:
 ## A worked set
 
 For a person targeting product and analysis plus customer-facing technical, in
-Bangalore and Hyderabad, at standard intensity, ten calls:
+Pune and Bangalore, at standard intensity, ten calls:
 
 | # | Domain filter | Freshness | Query |
 |---|---|---|---|
-| 1 | primary | 24h | `"Product Owner" OR "Product Manager" Bangalore Hyderabad` |
-| 2 | primary | 24h | `"Business Analyst" OR "Product Analyst" Bangalore Hyderabad` |
+| 1 | primary | 24h | `"Product Owner" OR "Product Manager" Pune Bangalore` |
+| 2 | primary | 24h | `"Business Analyst" OR "Product Analyst" Pune Bangalore` |
 | 3 | primary | 24h | `"Technical Account Manager" OR "Solutions Consultant" India` |
 | 4 | primary | 24h | `"Implementation Consultant" OR "Solutions Engineer" India SaaS` |
 | 5 | secondary | 24h | `"Product Owner" OR "Business Analyst" Bengaluru` |
-| 6 | secondary | 24h | `"Technical Account Manager" Bengaluru Hyderabad` |
-| 7 | regional | 7d | `product owner business analyst Hyderabad Bangalore` |
+| 6 | secondary | 24h | `"Technical Account Manager" Bengaluru Pune` |
+| 7 | regional | 7d | `product owner business analyst Pune Bangalore` |
 | 8 | regional | 7d | `solutions consultant technical account manager India` |
 | 9 | none, noise excluded | 24h | `careers "product owner" Bangalore apply` |
-| 10 | none, noise excluded | 24h | `careers "solutions consultant" Hyderabad apply` |
+| 10 | none, noise excluded | 24h | `careers "solutions consultant" Pune apply` |
 
 Calls 5 through 8 rotate their domain filter by weekday, so a fortnight covers
 every secondary and regional source without paying for all of them daily.
