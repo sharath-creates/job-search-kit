@@ -57,7 +57,9 @@ again.
 
 ### 5. A browser connector
 
-Check whether a browser connector such as Claude in Chrome is available.
+Check whether Claude in Chrome, or another connector that drives the
+person's own Chrome, is available. A browser built into the Claude app does
+not count: it is not logged in to their LinkedIn or their job site accounts.
 Record yes or no. Do not ask about it now. Step 1 offers the two browser tasks
 once the person knows what they do.
 
