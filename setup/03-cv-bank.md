@@ -12,6 +12,9 @@ job description.
 
 ## Say this first
 
+Say this only if step 2 did not already introduce the bank in the same
+message:
+
 > Applicant tracking systems rank you on how closely your CV matches the job
 > description. One CV sent to fifty jobs matches none of them well.
 >
@@ -19,23 +22,18 @@ job description.
 > written once, tagged. When a task finds a good role, it picks the twelve
 > bullets that match that job description and assembles a one-page CV from
 > them. Same facts every time, different selection.
->
-> Send me your CV and I'll start.
 
 ---
 
 ## 1. Extract
 
-Read their CV. Pull out every distinct achievement, responsibility and skill.
-Aim for thirty to fifty raw items. Include things they undersold.
+Read the CV named in `me/setup-state.md`. You already have it, so do not ask
+for it. Pull out every distinct achievement, responsibility and skill. Aim for
+thirty to fifty raw items. Include things they undersold.
 
-Then find the gaps. For any role lasting more than six months with fewer than
-four extracted bullets, ask:
-
-> Your time at <company> is thin in the bank. Tell me one thing you did there
-> that you'd mention in an interview, and what changed because of it.
-
-Ask this at most three times. Do not interrogate.
+Then find the gaps: any role lasting more than six months with fewer than four
+extracted bullets. Note up to three of them. Do not ask about them yet.
+Section 5 asks everything in one message.
 
 ## 2. Rewrite each bullet
 
@@ -52,8 +50,9 @@ Rules:
   headcount, error rate, adoption.
 - Where no number exists, carry a consequence instead. "Which unblocked the
   Q3 launch" beats a vague claim.
-- Never invent a number. If they cannot recall one, ask once, then leave the
-  bullet without one.
+- Never invent a number. Where a strong bullet is missing one, ask in the
+  section 5 message, and if they cannot recall it, leave the bullet without
+  one.
 
 ## 3. Tag each bullet
 
@@ -111,14 +110,28 @@ every tool, language and framework they have touched.>
     keywords. Below 60%, do not send. Report it instead.
 ```
 
-## 5. Check it back
+## 5. Check it back, in one message
 
-Show them three of the rewritten bullets and ask:
+Show three of the rewritten bullets, and fold the gap questions from section 1
+into the same message:
 
-> Do these sound like you, and is every number here true? I'd rather fix it now
+> Your bank has <N> bullets. Three of them, so you can check the voice:
+>
+> - <bullet>
+> - <bullet>
+> - <bullet>
+>
+> Do these sound like you, and is every number true? I'd rather fix it now
 > than have you find it in an interview.
+>
+> Your time at <company> is thin in the bank. Tell me one thing you did there
+> that you'd mention in an interview, and what changed because of it. Say
+> "skip" if you'd rather leave it.
 
-Correct whatever they flag.
+Repeat the last paragraph for each gap, at most three. Do not interrogate.
+
+Correct whatever they flag, turn each gap answer into a bullet under the rules
+in section 2, and update the Doc.
 
 ---
 
@@ -138,8 +151,6 @@ Mark step 3 done and step 4 next.
 ## Then say
 
 > Bank's built: <N> bullets, <N> of them carrying hard numbers.
->
-> Last question block, then I schedule everything. This one's about the
-> questions application forms ask, so I never have to interrupt you mid-run.
 
-Read `setup/04-answer-sheet.md`.
+Then read `setup/04-answer-sheet.md` and present its draft in the same message.
+Step 4 is a draft to check, so it needs no introduction or "ready?".

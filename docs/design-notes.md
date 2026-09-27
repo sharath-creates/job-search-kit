@@ -35,6 +35,29 @@ The interview pushes back exactly once, on the question that matters, and
 accepts the answer if they insist. That is the right amount of friction for a
 tool nobody is paid to use.
 
+## Propose, then confirm
+
+The CV answers about a third of the interview, so setup reads it first and
+asks the person to correct what it found. Where the CV is silent, setup
+proposes a default (locations, interview windows, auto-fails, intensity) and
+asks for corrections. Correcting a proposal takes one line. Answering a blank
+question takes thought, and thought is where people abandon a setup.
+
+Two things are never proposed: money and voluntary disclosure. A guessed
+salary floor can undercut the person on a form, and a guessed disclosure
+answer is an inference the kit has no business making.
+
+## The sheet is the review surface
+
+The person this kit serves is at work when the tasks run. Anything that needs
+them at the home computer within the hour fails them. The sheet opens on a
+phone, so every decision the system hands back goes there: the Approve tick,
+the question a form asked, their answer. The next run picks it up.
+
+Email follows the same logic. One morning email carries everything routine.
+The only other emails are an inbox reply that expires, a form question, or
+LinkedIn forms waiting for a click. A task with nothing to say sends nothing.
+
 ## Task prompts carry data, they do not fetch it
 
 The alternative design has each scheduled run read `me/profile.md`. It is
@@ -57,11 +80,14 @@ no email address.
 
 ## Six tasks, five of which never touch a submit button
 
-Only the apply run submits, and it stops on six named conditions. The LinkedIn
-task never submits at all, because LinkedIn's user agreement prohibits automated
-interaction and their detection restricts accounts that do it. The boundary is
-stated in the template itself rather than left to the agent's discretion, so a
-person editing the prompt sees why it is there.
+Only the apply run submits, and it stops on six named conditions. By default
+it submits only the roles the person ticked in the sheet. Setup offers
+automatic submission within the caps as an opt-in, for people who would rather
+not tick. The LinkedIn task never submits at all, because LinkedIn's user
+agreement prohibits automated interaction and their detection restricts
+accounts that do it. The boundary is stated in the template itself rather than
+left to the agent's discretion, so a person editing the prompt sees why it is
+there.
 
 ## What the kit deliberately does not do
 

@@ -25,18 +25,32 @@ One row per posting, from discovery through outcome.
 | Score | number | sourcing | Out of 100 |
 | Coverage % | number | tailoring | Keyword match against the job description |
 | Status | list | several | See the status list below |
+| Approve | checkbox | the person | Ticked means "send this one". Read only when they chose to approve each application. A ticked box, `yes`, `y` or `x` all count. |
+| Question for you | text | apply run | The exact form question or blocker that stopped a run. |
+| Your answer | text | the person | Their answer to Question for you, or `skip`. The next apply run uses it. |
 | Date applied | date | apply run | |
 | CV file | link | tailoring | The Drive doc used |
 | Follow-up due | date | apply run | Date applied plus 10 days |
 | Last contact | date | inbox watch | |
 | Notes | text | any | One line. Reasons for stops and skips go here. |
 
-Status values, in order: `Shortlisted`, `Tailored`, `Prefilled`, `Applied`,
-`Replied`, `Screening`, `Interviewing`, `Offer`, `Rejected`, `Withdrawn`,
-`Expired`.
+Status values, in order: `Shortlisted`, `Tailored`, `Needs you`,
+`Prefilled`, `Applied`, `Replied`, `Screening`, `Interviewing`, `Offer`,
+`Rejected`, `Withdrawn`, `Expired`.
+
+| Status | Set by | Means |
+|---|---|---|
+| `Shortlisted` | sourcing | Scored 55 or above. No CV yet. |
+| `Tailored` | sourcing | Scored 70 or above with a tailored CV at 60%+ coverage. Ready to send. |
+| `Needs you` | apply run | A form asked something the answer sheet does not cover. See Question for you. |
+| `Prefilled` | LinkedIn prefill | Filled on LinkedIn and waiting for the person's click. |
+| `Applied` onward | apply run, inbox watch, weekly review | The application went out, and what happened next. |
 
 Nothing writes a status that skips backwards. An apply run never sets a row
 back to Shortlisted.
+
+The three columns after Status are where the person talks to the system from
+their phone. Keep them next to Status so they fit on one screen.
 
 ## Tab 2: Watchlist
 

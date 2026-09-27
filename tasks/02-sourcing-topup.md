@@ -53,10 +53,11 @@ Append everything scoring 55 or above to Pipeline as "Shortlisted".
 For every role scoring 70 or above, read "{{CV_BANK_DOC}}", extract the job
 description's keyword set, assemble a one-page CV under the bank's 10 tailoring
 rules, write a 150-word cover note, and save both to
-"{{DRIVE_ROOT}}/Applications/<date>/<company>-<role>/". Record keyword coverage
-in the Pipeline row. Below 60% coverage, do not tailor.
+"{{DRIVE_ROOT}}/Applications/<date>/<company>-<role>/". In the Pipeline row,
+record keyword coverage and the CV file link, and set Status to "Tailored".
+Below 60% coverage, do not tailor, and leave the row as "Shortlisted".
 
 Append a row to the Log tab.
 
-Email {{EMAIL}} only if something scored 70 or above. Keep it to one screen:
-each role with score, coverage and URL, plus credits used this month.
+Send no email. The person gets one email a day, from the morning sweep, and
+it lists what this run found.

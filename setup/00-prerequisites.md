@@ -1,80 +1,95 @@
 # Step 0: Prerequisites
 
-**Goal:** confirm the five things this kit needs, and fix whatever is missing
-before any other step runs.
+**Goal:** confirm what this kit needs, and get everything missing fixed in one
+pass before any other step runs.
 
 **Output:** `me/setup-state.md`
 
-**Time:** 5 minutes.
+**Time:** 2 minutes.
 
 ---
 
 ## Say this first
 
-> Before we build anything, I need to check five things. This takes a couple of
-> minutes and saves an hour of confusing failures later. I'll check what I can
-> myself and ask you about the rest.
+> Before we build anything, I'm checking that I can reach everything I need.
+> Give me a moment.
 
 ---
 
-## The five checks
+## Run all five checks, then report once
 
-Run them in order. Stop at the first failure, give the fix, and wait.
+Run every check before you say anything else. A person fixing connectors makes
+one trip to Claude's settings, so hand them the whole list in one message
+rather than one failure at a time.
 
 ### 1. Google Drive, Sheets and Gmail
 
-Try listing recent Drive files. Try listing the last few Gmail messages.
-
-- **Both work:** say "Drive and Gmail are connected."
-- **Either fails:** stop. Say:
-  > I can't reach your Google account yet. Open Claude's settings, find
-  > Connectors, and connect Google Drive and Gmail. Tell me when that's done
-  > and I'll re-check.
-
-Do not offer a workaround. This kit stores its pipeline in a Google Sheet, and
-every task reads from it.
+Try listing recent Drive files. Try listing the last few Gmail messages. Both
+must work. There is no workaround: this kit stores its pipeline in a Google
+Sheet, and every task reads from it.
 
 ### 2. A web search connector
 
-Check whether a search tool is available. Firecrawl is the tuned default.
-
-- **Firecrawl available:** say so, and note that the free tier gives 1,000
-  credits a month, of which this kit uses about 450 on default settings.
-- **A different search tool available:** say which one you found, and note that
-  step 5 will adapt the query syntax. Read `reference/search-queries.md` when
-  you reach step 5, not now.
-- **Nothing available:** stop. Say:
-  > I have no web search tool, so I can't find job postings. Firecrawl has a
-  > free tier that covers this. Connect it in Claude's settings under
-  > Connectors, then tell me.
+Check whether a search tool is available. Firecrawl is the tuned default, and
+its free tier gives 1,000 credits a month, of which this kit uses about 450 on
+default settings. Any other search tool works: note its name, and step 5
+adapts the query syntax. Read `reference/search-queries.md` when you reach
+step 5, not now.
 
 ### 3. Scheduled tasks
 
-Confirm you can create scheduled tasks. Do not create one yet.
-
-- **Unavailable:** say:
-  > Scheduled tasks aren't available on your plan or in this interface. We can
-  > still do the whole setup, and I'll give you six prompts you run by hand or
-  > schedule elsewhere. Want to continue?
-
-Record the answer. If they continue, step 5 produces files instead of tasks.
+Confirm you can create scheduled tasks. Do not create one yet. If you cannot,
+setup still runs, and step 5 produces six prompt files instead of six tasks.
 
 ### 4. Their CV
 
-Ask:
-> Do you have your current CV handy? Any format works. Attach it, or tell me
-> it's already in your Drive and I'll find it.
+Look in `me/` for a CV: any file other than `README.md` and
+`EXAMPLE-profile.md`, in PDF, Word, plain text or Markdown format.
 
-You need it in step 3, not now. Record whether it exists.
+- **Exactly one:** use it. Do not ask.
+- **Several:** ask which one is current.
+- **None:** ask for it in the report below.
 
-### 5. Chrome (optional)
+If the file's format defeats you, ask them to save it as a PDF and put that in
+`me/` instead. If they paste or attach it in the chat, write its text to
+`me/cv.md`, so a later step or a resumed session can read it without asking
+again.
 
-Ask:
-> Two of the six tasks fill in application forms in your browser. They need
-> Chrome open with the Claude extension installed, and they never submit
-> anything without you. The other four work without it. Do you want those two?
+### 5. A browser connector
 
-If they say no, step 5 schedules four tasks instead of six. Record the answer.
+Check whether a browser connector such as Claude in Chrome is available.
+Record yes or no. Do not ask about it now. Step 1 offers the two browser tasks
+once the person knows what they do.
+
+---
+
+## Report
+
+**Everything passed.** Say one line, then go straight into step 1 in the same
+message:
+
+> Everything's connected: Google, <search tool>, scheduled tasks. I found your
+> CV (<file name>).
+
+**Something is missing.** List every fix in one message and wait:
+
+> Before we start, <N> things need fixing. The connectors are in Claude's
+> settings under Connectors.
+>
+> 1. <Connect Google Drive and Gmail.>
+> 2. <Connect Firecrawl. Its free tier covers this kit.>
+> 3. <Put your CV in the `me` folder inside this kit, or attach it here. Any
+>    format works.>
+>
+> Tell me when that's done and I'll re-check.
+
+Once they say it's done, re-run only the checks that failed.
+
+**Scheduled tasks unavailable.** Add this to the report and record the answer:
+
+> Scheduled tasks aren't available on your plan or in this interface. We can
+> still do the whole setup, and I'll give you six prompts you run by hand or
+> schedule elsewhere. Want to continue?
 
 ---
 
@@ -100,16 +115,8 @@ Started: <today's date>
 - Google Drive/Sheets/Gmail: <yes/no>
 - Search tool: <name>
 - Scheduled tasks: <available/unavailable>
-- CV supplied: <yes/no/in Drive>
-- Browser tasks wanted: <yes/no>
+- CV: <path in me/, or "in Drive: <name>">
+- Browser connector: <yes/no>
 ```
 
----
-
-## Then say
-
-> All clear. Next is the part that decides everything else: what you're
-> actually going after. It's the longest step, about fifteen minutes, and it's
-> mostly me asking and you answering. Ready?
-
-Wait for yes, then read `setup/01-discovery.md`.
+Then read `setup/01-discovery.md` and open with its first block.

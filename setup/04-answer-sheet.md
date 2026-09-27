@@ -6,67 +6,66 @@ fills a form without stopping, and stops only on a real judgement call.
 **Output:** `me/answer-sheet.md`, plus a copy in Drive at
 `Job Search <year>/Reference/`.
 
-**Time:** 7 minutes.
+**Time:** 3 minutes.
 
 ---
 
-## Say this first
+## Draft first, then show it once
 
-> Application forms ask the same forty questions. If I have your answers up
-> front, a run fills a form in one pass and only interrupts you when something
-> genuinely needs your judgement. Some of these you've already answered, so
-> this is shorter than it looks.
+Application forms ask the same forty questions. Most of the answers already sit
+in `me/profile.md` and the CV. Draft the whole sheet yourself, then show it in
+one message and let the person correct it. Do not ask field by field.
 
----
+Fill from the profile and the CV:
 
-## Ask in four blocks
+- **Contact:** phone, LinkedIn, portfolio or GitHub, from the CV. Use the
+  city as the address unless the CV carries a full one.
+- **Work authorisation and sponsorship:** from the profile.
+- **Notice period** from the profile, and **earliest start** as "<notice
+  period> after an offer". A run that meets a date field adds the notice
+  period to that day's date.
+- **Compensation:** floor, expected and current, from the profile. When a
+  form wants a range, use expected to expected plus 15%.
+- **Common short answers:** years of experience in their core skills, highest
+  qualification, certifications, from the CV.
 
-Pull anything already in `me/profile.md` and confirm it rather than re-asking.
+Draft the four stock free-text answers from the profile and the CV bank:
 
-### Block 1: Identity and logistics
+- **Why this role:** 60 words, with a `<company specific>` slot the task
+  fills per role.
+- **Why leaving:** 30 words. Forward-looking. Nothing negative about the
+  current employer.
+- **Greatest strength:** 50 words, built on a strength-3 bullet from the bank.
+- **About yourself:** 80 words. Their background one-liner, expanded.
 
-> - Phone number with country code
-> - LinkedIn URL, and portfolio or GitHub if you have one
-> - Current address, or at least city and postcode
-> - Are you legally authorised to work in <each target location>?
-> - Do you need visa sponsorship now or in future?
-> - Notice period (confirm)
-> - Earliest start date
+Voluntary disclosure (gender, ethnicity, disability, veteran status) defaults
+to "prefer not to say". Never infer any of these.
 
-### Block 2: Money
+## Show it
 
-> - Current total compensation, if you're willing to state it
-> - Expected total compensation, as a single number
-> - Your floor (confirm from profile)
+> Application forms ask the same forty questions, so I've drafted your answers
+> from what you've told me. Read them once and fix anything that's wrong.
 >
-> When a form asks for a number and won't take a range, I'll use your expected
-> figure. When it asks for a range, I'll use expected to expected plus 15%.
-> Say so if you'd rather I did something else.
-
-### Block 3: The stock free-text answers
-
-These four appear constantly. Draft each one yourself from `me/profile.md` and
-the CV bank, show it, and let them edit. Do not ask them to write from scratch.
-
-> **Why do you want this role?**
-> A 60-word template with a `<company specific>` slot the task fills per role.
+> **Contact:** <phone>, <LinkedIn>, <portfolio>. <Name any that are missing.>
+> **Work:** notice <period>, so you can start <period> after an offer.
+> <Authorisation summary.>
+> **Money:** expected <figure>. If a form wants a range, <figure> to
+> <figure + 15%>. Never below <floor>.
 >
-> **Why are you leaving your current role?**
-> 30 words. Forward-looking. Nothing negative about the current employer.
+> **Why this role** (I fill in the company part for each job):
+> <draft>
 >
-> **What's your greatest strength, with an example?**
-> 50 words, built on a strength-3 bullet from the bank.
+> **Why you're leaving:** <draft>
 >
-> **Tell us about yourself.**
-> 80 words. Their background one-liner, expanded.
+> **Greatest strength:** <draft>
+>
+> **About you:** <draft>
+>
+> **Voluntary questions** (gender, ethnicity, disability, veteran status): I'll
+> answer "prefer not to say" on all of them unless you tell me otherwise.
 
-### Block 4: Voluntary disclosure
-
-> Forms often ask about gender, ethnicity, disability, and veteran status.
-> These are voluntary and I won't guess. Tell me what you want me to select,
-> or say "prefer not to say" and I'll use that everywhere.
-
-Record whatever they say and use it verbatim. Never infer any of these.
+Apply their corrections. For voluntary disclosure, use their words verbatim.
+If they supplied a missing contact detail, add it.
 
 ---
 
@@ -134,7 +133,8 @@ Version 1. Updated <date>.
 | Veteran status | |
 
 ## Stop and ask
-A run must leave the field blank, stop, and report when:
+A run must not submit, and must write the question into the sheet for the
+person to answer, when:
 - the question is not covered above
 - free text over 300 characters is required and no tailored cover note covers it
 - relocation outside <their accepted locations> is asked
@@ -149,15 +149,18 @@ A run must leave the field blank, stop, and report when:
   with their actual figure.
 ```
 
-Copy it to Drive under `Job Search <year>/Reference/`. The browser-based tasks
-read the Drive copy, since they cannot see this repo.
+Copy it to Drive under `Job Search <year>/Reference/`. The scheduled tasks
+read the Drive copy, since they cannot see this repo. From now on the Drive
+copy is the live one: when the person answers a new form question in the
+sheet, the apply run adds it to the Drive copy's "Common short answers" table,
+so no later run stops on the same question.
 
 ---
 
 ## Then say
 
-> Done. Everything's in place. Last step is scheduling, which takes two
-> minutes, and then this runs on its own.
+> Done. Everything's in place. Last step is the schedule, and then this runs
+> on its own.
 
 Update `me/setup-state.md`, mark step 4 done and step 5 next, then read
-`setup/05-schedule.md`.
+`setup/05-schedule.md` and show its schedule grid in the same message.

@@ -44,7 +44,8 @@ report.
    - EXPIRED: report with a recovery draft
    - FYI: rejections and acknowledgements
 
-4. For every ACT NOW and EXPIRED item, create a Gmail DRAFT reply. Never send.
+4. For every ACT NOW and EXPIRED item, create a Gmail DRAFT reply, unless the
+   thread already holds a draft or a reply sent from {{EMAIL}}. Never send.
    Short, professional, no grovelling. Include continued interest, availability
    ({{AVAILABILITY}}), and one or two lines of fit drawn from:
    {{BACKGROUND}}
@@ -54,11 +55,13 @@ report.
 
 6. Append a row to the Log tab.
 
-7. Email a summary to {{EMAIL}}. Subject
+7. Email a summary to {{EMAIL}} only when an item is new since the last
+   "Inbox watch" email in their Sent or Inbox, or has moved into ACT NOW or
+   EXPIRED since then. Subject
    "Inbox watch <date> <AM or PM> - N need action". ACT NOW at the very top,
    with hours remaining and a direct link for each. Then ACT THIS WEEK, then
-   EXPIRED with the draft prepared, then a one-line FYI count. If nothing needs
-   action, send one line saying so. Do not pad.
+   EXPIRED with the draft prepared, then a one-line FYI count. If nothing new
+   needs action, send nothing. Do not pad.
 
 8. Flag any company that sent more than one application acknowledgement for the
    same role in the last 14 days. That means the apply run is submitting

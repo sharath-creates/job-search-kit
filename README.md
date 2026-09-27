@@ -1,6 +1,6 @@
 # Job Search Kit
 
-A job search that runs itself, built for people like me who do not have the time to apply to jobs because of their work. Clone this repo, open it in Claude, and say "set me up". Claude interviews you for about forty minutes, builds your tracking sheet, writes your CV bank, and schedules six recurring tasks that source roles, tailor your CV, prepare applications, and watch your inbox for replies you would otherwise miss.
+A job search that runs itself, built for people like me who do not have the time to apply to jobs because of their work. Download this repo, drop your CV into it, open it in Claude, and say "set me up". Claude reads your CV, checks a few things with you for about twenty-five minutes, builds your tracking sheet, writes your CV bank, and schedules six recurring tasks that source roles, tailor your CV, prepare applications, and watch your inbox for replies you would otherwise miss. After that you get one email a morning.
 
 P.S. This needs a Claude Pro subscription with scheduled tasks, or an equivalent ChatGPT plan if you port it. Budget roughly ₹2,000 a month.
 
@@ -19,69 +19,82 @@ Every rule in this kit stops one of those four.
 
 ## What you get
 
-Setup schedules six tasks. Each runs on its own, reports what it did, and stops. None of them submit an application without your review.
+Setup schedules six tasks. Each runs on its own, records what it did in your sheet, and stops. By default, none of them submit an application you have not ticked.
 
 | # | Task | When | What it does |
 |---|---|---|---|
-| 1 | Shortlist Sweep | Daily, early morning | Polls company job boards, runs a capped set of searches, scores every new role out of 100, writes anything scoring 55+ to your sheet |
+| 1 | Shortlist Sweep | Daily, early morning | Polls company job boards, runs a capped set of searches, scores every new role out of 100, tailors a CV for the best ones, and sends your one morning email |
 | 2 | Sourcing Top-up | Daily, midday | A cheaper second pass that keeps the queue full between the sweep and the apply runs |
-| 3 | Apply Run | Every few hours on weekdays | Takes the highest-scoring shortlisted roles, attaches the CV already tailored to each, fills every form in the batch, and queues them all for one review pass |
-| 4 | LinkedIn Prefill | Twice on weekdays | Fills Easy Apply forms and queues them. You press submit. |
-| 5 | Inbox Watch | Twice daily | Reads your email for interview invites, assessment links, and recruiter questions, computes what expires when, and drafts replies |
+| 3 | Apply Run | Every few hours on weekdays | Takes the tailored roles you ticked in the sheet, attaches the CV built for each, fills the form, and submits. Any question it cannot answer goes back to you in the sheet. |
+| 4 | LinkedIn Prefill | Weekday evenings | Fills Easy Apply forms and leaves them open in Chrome. You press submit. |
+| 5 | Inbox Watch | Twice daily | Reads your email for interview invites, assessment links, and recruiter questions, computes what expires when, drafts replies, and emails you only when something needs action |
 | 6 | Weekly Review | Sunday morning | Reconciles the pipeline, audits for duplicates and untailored applications, compares reply rates by role family and by source, and tells you what to retire |
 
 Tasks 1, 2, 5 and 6 run in the cloud, so they fire whether or not your laptop is on. Tasks 3 and 4 are created as tasks that require your own computer, because they drive a browser already logged in to the job sites. They hand every real decision back to you.
 
-### How the review queue works
+### How you stay in control from your phone
 
-Tasks 3 and 4 do not walk you through applications one at a time. They prepare the whole batch, then hand you a single review pass: role, the tailored CV diff, every prefilled answer, and a flag on any screening question that needed a judgement call. You approve or skip each one with a keypress.
+Your Google Sheet is where you and the system talk. Each morning's email lists the roles it prepared, each with a score, a keyword match and a tailored CV. You open the sheet on your phone and tick Approve on the ones you want. The next apply run sends them.
 
-Thirty applications take about four minutes to review rather than ninety minutes to fill. You still see every one before it goes, which is the point. The time was never in the click.
+If a form asks something your answer sheet does not cover, the run stops on that role and writes the question into the sheet. You type your answer next to it, and the next run finishes the application. Answers that would apply to any company get saved, so the same question never stops a run twice.
+
+Thirty roles take a few minutes to tick, rather than ninety minutes to fill. If you would rather not tick at all, pick automatic submission during setup, and the apply runs send everything that clears the bar, within your daily cap.
 
 ## Before you start
 
-You need six things. The setup walks you through each one and will not move on until it works.
+You need five things. Setup checks all of them in one go and gives you a single list of anything to fix.
 
 1. A Claude subscription with scheduled tasks available.
 2. A Google account connected to Claude, with Drive, Sheets and Gmail enabled. Your pipeline lives in a Google Sheet and your tailored CVs live in Drive.
 3. A web search connector. Firecrawl is what this kit is tuned for, and its free tier covers a month of searching. Any search tool works with a small edit, documented in `reference/search-queries.md`.
 4. Your current CV, in any format.
-5. Forty minutes, once. After that the system runs on its own.
-6. A personal laptop or PC that stays on, applying for you from home.
+5. About twenty-five minutes, once. After that the system runs on its own.
 
-**Git.** On Windows, install [Git for Windows](https://git-scm.com/download/win), or run `winget install --id Git.Git -e --source winget` in PowerShell. On macOS, `git` ships with the Xcode command line tools, so `xcode-select --install` is enough. On Linux, use your package manager.
-
-Optional: the Claude in Chrome extension, if you want tasks 3 and 4. Skip them and the other four still work.
+Optional: tasks 3 and 4 fill in forms in your browser, so they need the Claude in Chrome extension and a computer that stays on at home. Skip them and the other four still find roles, tailor a CV for each, and watch your inbox. You apply from the morning email.
 
 ## Install
 
-```
-git clone https://github.com/sharath-creates/job-search-kit.git
-cd job-search-kit
-```
-
-Open Claude, add this folder as a project directory, and type:
+1. **Download the kit.** On this page, click the green **Code** button, then **Download ZIP**, and unzip it somewhere you will find again. No Git needed.
+2. **Add your CV.** Put your CV file into the `me` folder inside the kit. Git ignores that folder, so your CV never ends up on GitHub.
+3. **Start.** Open Claude, add the unzipped folder as a project directory, and type:
 
 ```
 set me up
 ```
 
-Claude reads `CLAUDE.md`, sees that `me/profile.md` is missing, and starts the interview. Answer the questions. Stop whenever you want and say "continue setup" later, since progress is saved after every step.
+Claude checks your connectors, finds your CV, and starts. Stop whenever you want and say "continue setup" later, since progress is saved after every step.
+
+If you already use Git, `git clone https://github.com/sharath-creates/job-search-kit.git` works too, and `git pull` gets you updates. After updating, say "update my tasks" so your scheduled tasks pick up the changes.
 
 ## What setup asks you
 
-Six steps, each one short.
+Claude reads your CV first, then shows you what it found and what it suggests. Most answers are "yes, that's right" or a one-line correction.
 
 | Step | You provide | Claude produces |
 |---|---|---|
-| 0 | Confirmation that your connectors work | A green light, or a specific fix |
-| 1 | Your history, your targets, your limits | `me/profile.md` |
+| 0 | Nothing, unless a connector is missing | A green light, or one list of everything to fix |
+| 1 | Corrections to what your CV says, the roles you want, your salary floor | `me/profile.md` |
 | 2 | Nothing | A Google Sheet with four tabs, seeded with company boards worth watching |
-| 3 | Your CV | A master CV bank in Drive, split into reusable bullets |
-| 4 | Salary floor, notice period, availability | `me/answer-sheet.md`, the source of every form answer |
-| 5 | Your timezone and how aggressive you want to be | Six scheduled tasks, live |
+| 3 | A quick check of three bullets, plus any stories your CV left out | A master CV bank in Drive, split into reusable bullets |
+| 4 | A read-through of drafted form answers | `me/answer-sheet.md`, the source of every form answer |
+| 5 | A yes to the schedule | Six scheduled tasks, live |
 
-Step 1 is the one that matters. It forces you to name at most two role families and holds you to them. The scoring rubric, the search queries and the CV tailoring all follow from that choice.
+Step 1 is the one that matters. It asks you to name at most two role families and holds you to them. The scoring rubric, the search queries and the CV tailoring all follow from that choice. It also asks for your salary numbers, which Claude never guesses.
+
+## After setup
+
+You get one email each morning when there is something to report: new roles ready, what went out yesterday, and anything waiting on you. No email means nothing needed you. Inbox Watch emails separately, and only when a reply or a test link needs action.
+
+Things you can say to Claude in this folder any time:
+
+| Say | What happens |
+|---|---|
+| "job search status" | A summary of the week, and anything waiting on you |
+| "pause my search" | Every task stops until you say "resume my search" |
+| "the roles look wrong" | Claude retunes the searches and the scoring |
+| "make my search cheaper" | Fewer searches and fetches, in order of savings |
+| "switch to automatic" | Apply runs stop waiting for your tick |
+| "I got an interview at <company>" | The sheet updates, and Claude offers to prepare you |
 
 ## What it costs
 
@@ -96,7 +109,7 @@ Three settings control almost all of it: how many searches run per sweep, how ma
 
 These are built into every task and are worth knowing before you turn anything on.
 
-- **Nothing submits without you.** Tasks 3 and 4 fill forms and queue them for your review.
+- **Nothing submits without your say-so.** By default the apply run sends only roles you ticked. If you chose automatic, the caps and stops below are the limit, and you can withdraw any row.
 - **Daily and per-run caps.** A maximum number of applications per run and per day, set during setup. An empty run is a correct result.
 - **A fourteen-day company cooldown.** One company receives at most one application per fortnight.
 - **No generic CVs.** A role without a tailored CV gets skipped and reported, never sent a default file.
@@ -107,21 +120,21 @@ These are built into every task and are worth knowing before you turn anything o
 
 LinkedIn's User Agreement prohibits automated applying, and that applies to locally-run browser tools as much as to anything in the cloud. This kit prepares everything and stops at the submit button, which you press.
 
-That is not a technical limitation we could not get past. Accounts get restricted for automated activity, and losing your LinkedIn mid-search costs you far more than the seconds you saved. The review queue exists so that approving thirty applications takes four minutes rather than ninety.
+That is not a technical limitation we could not get past. Accounts get restricted for automated activity, and losing your LinkedIn mid-search costs you far more than the seconds you saved. The forms are filled before you sit down, so your part is one click per application.
 
 If you modify this to auto-submit, that is your account and your call, and it is not what this kit does.
 
 ## What this kit does not do
 
-It does not submit anything you have not seen. It does not scrape profiles or contact data. It does not message recruiters on your behalf. It does not promise interviews, and no tool can.
+It does not submit anything you have not approved, unless you turn on automatic submission. It does not scrape profiles or contact data. It does not message recruiters on your behalf. It does not promise interviews, and no tool can.
 
 It removes the hours between deciding to apply and having applied. That is the whole product.
 
-That being said, you can automate the application by telling claude to apply through the claude in chrome extension. It will do the final click for you.
+If you would rather not tick each application, choose automatic submission during setup, or say "switch to automatic" later. The apply run then does the final click for you on company job boards, within your caps. LinkedIn stays manual either way.
 
 ## Using this with Codex or another agent
 
-`AGENTS.md` mirrors `CLAUDE.md` for agents that read that convention. `docs/codex.md` covers the three changes you need: scheduling through cron or Task Scheduler instead of Claude's scheduled tasks, local CSV files instead of Google Sheets if you have no connector, and the search tool swap.
+`AGENTS.md` mirrors `CLAUDE.md` for agents that read that convention. `docs/codex.md` covers the changes you need: scheduling through cron or Task Scheduler instead of Claude's scheduled tasks, local CSV files instead of Google Sheets if you have no connector, and the search tool swap, plus what happens to email and the browser tasks.
 
 ## Repository map
 
@@ -132,12 +145,12 @@ setup/                 Six guided steps. Claude reads one at a time.
 tasks/                 The six task templates, with placeholders.
 reference/             Rubrics, query libraries, schemas, troubleshooting.
 docs/                  Porting guides and design notes.
-me/                    Your answers. Gitignored.
+me/                    Your CV and your answers. Gitignored.
 ```
 
 ## Troubleshooting
 
-`reference/troubleshooting.md` covers the failures people hit most: a task that fires and does nothing, search credits burning faster than expected, the sheet not updating, and Chrome-dependent tasks failing when the browser is closed.
+`reference/troubleshooting.md` covers the failures people hit most: a task that fires and does nothing, tailored roles that never get sent, search credits burning faster than expected, the sheet not updating, and Chrome-dependent tasks failing when the browser is closed.
 
 ## License
 

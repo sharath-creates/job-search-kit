@@ -6,7 +6,7 @@ folder tree that holds tailored CVs.
 **Output:** a Google Sheet, a Drive folder, and the sheet URL recorded in
 `me/setup-state.md`.
 
-**Time:** 3 minutes, mostly you working.
+**Time:** 3 minutes, none of it needing the person.
 
 ---
 
@@ -35,7 +35,9 @@ Summary of the four tabs:
 | `Queries` | Which searches are producing applications, and which to retire |
 | `Log` | One row per task run: what fired, what it cost, what it found |
 
-Freeze the header row on each tab.
+Freeze the header row on each tab. Format the Pipeline tab's `Approve` column
+as checkboxes if your connector can. If it cannot, leave it as text: every task
+treats a ticked box, `yes`, `y` or `x` as approved.
 
 ## 2. Seed the watchlist
 
@@ -89,7 +91,7 @@ Mark step 2 done and step 3 next.
 > I seeded the watchlist with <N> company job boards. Those get checked every
 > morning for free, before any paid searching happens.
 >
-> Next I need your CV. This is the step that decides whether your applications
-> get read.
+> Now I'm turning your CV into a bank of tagged bullets. This is the part that
+> decides whether your applications get read.
 
-Read `setup/03-cv-bank.md`.
+Do not wait for a reply. Read `setup/03-cv-bank.md` and carry on.

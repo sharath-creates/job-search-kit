@@ -8,4 +8,5 @@ Read `me/setup-state.md` if it exists.
 - It exists: read the step marked `next` and continue from it. Tell the person
   which step they are on and how many remain before you ask anything.
 
-Do not read more than one setup file per turn.
+Read one setup file at a time. A step that needs nothing from the person runs
+straight into the next one. Stop at every question.
