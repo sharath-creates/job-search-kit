@@ -24,9 +24,32 @@ and add a Log note. Tell them when the next sweep fires.
 
 ## "Switch to automatic" or "I want to approve each one"
 
+This covers applications on company sites. LinkedIn has its own switch,
+below. If the person says "automatic" without saying which, ask.
+
 Change `Submission` in `me/profile.md` and `me/setup-state.md`. Then update two
 places with the texts in `setup/05-schedule.md`: `{{APPROVAL_RULE}}` in the
 Apply Run prompt, and `{{APPROVAL_NOTE}}` in the Shortlist Sweep prompt.
+
+## "LinkedIn automatic"
+
+Say this once, and wait for a yes:
+
+> LinkedIn's user agreement bans automated applying, and LinkedIn restricts
+> accounts it catches. If yours is restricted mid-search, you lose access to
+> your profile, your messages and your recruiter contacts until they lift
+> it. I'll keep to your daily cap and only submit forms I could fill
+> completely. Still want me to click Submit on LinkedIn?
+
+On a yes, change `LinkedIn` to `automatic` in `me/profile.md` and
+`me/setup-state.md`, and swap `{{LINKEDIN_SUBMIT_RULE}}` in the LinkedIn
+Prefill prompt for the automatic text in `setup/05-schedule.md`.
+
+## "Stop submitting on LinkedIn" or "My LinkedIn got restricted"
+
+Change `LinkedIn` back to `you click` and swap in the you-click text. After a
+restriction, also disable LinkedIn Prefill until the person says LinkedIn has
+lifted it, and add a Log note saying why.
 
 ## "Turn on apply runs"
 
@@ -50,11 +73,13 @@ the one-email-a-day design. For each task in `me/setup-state.md`:
    CV file and 60% coverage or above to `Tailored`, since older sweeps never
    set that status.
 3. Update the scheduled task in place, keeping its ID and schedule. For
-   LinkedIn Prefill, offer to move it to the evening slot in the grid.
+   LinkedIn Prefill, move it to the two weekday slots in the grid, since it
+   now runs twice a day and saves its forms.
 
 If `me/profile.md` has no `Submission` line, ask the submission question from
 block 6 of `setup/01-discovery.md` before step 2, since older versions of the
-Apply Run submitted without asking.
+Apply Run submitted without asking. If it has no `LinkedIn` line, use `you
+click`.
 
 Report which tasks changed and what they now do differently, in one line each.
 
@@ -86,9 +111,12 @@ In order of savings:
 1. Drop task 2 entirely. It is the redundant one.
 2. Cut `{{FETCH_CAP}}` from 15 to 8. Scoring fetches are the largest single
    cost in a sweep.
-3. Cut `{{SEARCH_CALLS}}` from 10 to 6.
-4. Move task 1 from daily to Monday, Wednesday, Friday.
-5. Move apply runs from every three hours to twice a day.
+3. Cut `{{LINKEDIN_READ_CAP}}` by two, or run LinkedIn Prefill once a day.
+   It reads postings in the browser, which costs tokens but no search
+   credits, and it reads per title, so the cost grows with the title list.
+4. Cut `{{SEARCH_CALLS}}` from 10 to 6.
+5. Move task 1 from daily to Monday, Wednesday, Friday.
+6. Move apply runs from every three hours to twice a day.
 
 Never save tokens by having a task read the repo, by removing the dedupe step,
 or by dropping the tailoring step. Each of those costs more than it saves.

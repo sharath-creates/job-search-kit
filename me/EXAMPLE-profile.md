@@ -53,3 +53,4 @@ Calibration companies: Whatfix, MoEngage, Freshworks
 - Applications per day: 8
 - Browser tasks: yes
 - Submission: you approve
+- LinkedIn: you click

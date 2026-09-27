@@ -36,13 +36,14 @@ conversion is the usual cause of two apply runs firing in the same hour.
 | 1 Shortlist Sweep | 07:00 Mon, Wed, Fri | 07:00 Mon-Sat | 07:00 daily |
 | 2 Sourcing Top-up | off | 13:00 Mon-Sat | 13:00 and 17:00 daily |
 | 3 Apply Run | 10:00 and 16:00 Mon-Fri | every 3h, 09:00-21:00 Mon-Fri | every 2h, 09:00-21:00 Mon-Fri |
-| 4 LinkedIn Prefill | off | 19:00 Mon-Fri | 13:00 and 19:00 Mon-Fri |
+| 4 LinkedIn Prefill | 12:00 and 19:00 Mon-Fri | 10:30 and 19:30 Mon-Fri | 10:00 and 20:00 Mon-Fri |
 | 5 Inbox Watch | 08:00 daily | 08:00 and 20:00 daily | 08:00, 14:00, 20:00 daily |
 | 6 Weekly Review | 10:00 Sunday | 10:00 Sunday | 10:00 Sunday |
 
-LinkedIn Prefill leaves forms open in Chrome for the person to submit, so it
-runs in the evening, when someone with a day job is most likely at the
-computer. Move it if their evenings look different.
+LinkedIn Prefill saves each filled application to the person's LinkedIn
+Saved jobs, so they can review it whenever they are free. Its two runs sit
+between apply runs at every level, because both tasks drive the same browser.
+Keep them apart if you move either one.
 
 Caps by level:
 
@@ -52,6 +53,7 @@ Caps by level:
 | Applications per day, all runs | 4 | 8 | 12 |
 | Search calls per sweep | 6 | 10 | 14 |
 | Pages fetched for scoring per sweep | 8 | 15 | 20 |
+| LinkedIn postings read per title, per run | 3 | 5 | 8 |
 
 Show the person their grid and ask:
 
@@ -84,11 +86,13 @@ create the scheduled task with the filled text as its prompt.
 | `{{ANSWER_SHEET_DOC}}` | Drive copy of the answer sheet |
 | `{{PER_RUN_CAP}}` `{{PER_DAY_CAP}}` | From the caps table |
 | `{{SEARCH_CALLS}}` `{{FETCH_CAP}}` | From the caps table |
+| `{{LINKEDIN_READ_CAP}}` | From the caps table |
 | `{{WEEKLY_SEARCH_CALLS}}` | Twice `{{SEARCH_CALLS}}`, capped at 20 |
 | `{{SEARCH_TOOL}}` | Search connector name |
 | `{{TZ}}` `{{TIME}}` `{{TIMES}}` `{{INTERVAL}}` `{{WINDOW}}` | Their timezone and the local times from the schedule grid. These appear in task names, not in prompt bodies. |
 | `{{APPROVAL_RULE}}` | The submission mode from the profile. See the table below. |
 | `{{APPROVAL_NOTE}}` | The submission mode from the profile. See the table below. |
+| `{{LINKEDIN_SUBMIT_RULE}}` | The LinkedIn mode from the profile. See the table below. |
 | `{{QUERIES_A}}` `{{QUERIES_B}}` | Built in the next section |
 | `{{TOPUP_QUERY_1}}` to `{{TOPUP_QUERY_4}}` | The four highest-yield queries from the set, one per domain tier |
 | `{{BOARD_DOMAINS}}` `{{BOARD_DOMAINS_PRIMARY}}` `{{BOARD_DOMAINS_SECONDARY}}` `{{REGIONAL_DOMAINS}}` `{{NOISE_DOMAINS}}` | The domain tier lists in `reference/search-queries.md`, narrowed to their locations |
@@ -100,6 +104,14 @@ The two approval placeholders take one of these fixed texts:
 | You approve | `Only rows whose Approve cell is ticked, or reads yes, y or x. An unticked row waits, however well it scores.` | `Tick Approve in the sheet on the ones you want sent. The next apply run sends them.` |
 | Automatic | `Every row that passes the guards below. The person chose automatic submission within these caps.` | `The apply runs send these within your daily cap. Set Status to Withdrawn on any you want to skip.` |
 | No browser tasks | Task 3 is not created. | `Apply from the links above. The tailored CV and cover note for each sit in its Drive folder. Set Status to Applied when you send one, or the weekly review will pick up the confirmation email.` |
+
+`{{LINKEDIN_SUBMIT_RULE}}` (task 4) takes one of these, and the automatic
+text carries `{{PER_DAY_CAP}}`, which you fill as well:
+
+| LinkedIn mode | `{{LINKEDIN_SUBMIT_RULE}}` |
+|---|---|
+| You click | `Never click Submit or Send application. Fill each form, then save it for the person to review and submit.` |
+| Automatic | `The person chose automatic submission on LinkedIn and accepted the risk to their account. Click Submit only when every field came from the answer sheet and nothing was left blank or flagged. Save the rest for the person. At most {{PER_DAY_CAP}} LinkedIn submissions per calendar day across both runs, counted separately from company-site applications.` |
 
 Verify before creating each task: no `{{` remains anywhere in the prompt.
 
@@ -160,6 +172,7 @@ Append to `me/setup-state.md`:
 ## Settings
 - Intensity: <level>
 - Submission: <you approve / automatic / not applicable>
+- LinkedIn: <you click / automatic / not applicable>
 - Per-run cap: <N>, per-day cap: <N>
 - Search calls per sweep: <N>, credits per month estimated: <N>
 - Timezone: <tz>
@@ -184,6 +197,12 @@ Mark all steps done.
 >   Withdrawn to stop one.>
 >   <No browser tasks: Apply from the links in the morning email. Each one
 >   has a tailored CV waiting in Drive.>
+> - <LinkedIn, you click: Twice each weekday I fill in LinkedIn Easy Apply
+>   forms for roles scoring 70 or above and save them. Open Saved jobs on
+>   LinkedIn, check each one, and click Submit.>
+>   <LinkedIn, automatic: Twice each weekday I submit LinkedIn Easy Apply
+>   forms for roles scoring 70 or above, up to <N> a day, and save any I
+>   couldn't fill in completely for you to finish.>
 >
 > Give it three days before you judge it. The first sweep usually finds more
 > than the rest because it has no history to dedupe against.

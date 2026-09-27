@@ -26,7 +26,7 @@ Setup schedules six tasks. Each runs on its own, records what it did in your she
 | 1 | Shortlist Sweep | Daily, early morning | Polls company job boards, runs a capped set of searches, scores every new role out of 100, tailors a CV for the best ones, and sends your one morning email |
 | 2 | Sourcing Top-up | Daily, midday | A cheaper second pass that keeps the queue full between the sweep and the apply runs |
 | 3 | Apply Run | Every few hours on weekdays | Takes the tailored roles you ticked in the sheet, attaches the CV built for each, fills the form, and submits. Any question it cannot answer goes back to you in the sheet. |
-| 4 | LinkedIn Prefill | Weekday evenings | Scores Easy Apply roles out of 100, fills the ones scoring 70+ with the CV already on your LinkedIn account, and leaves them open in Chrome. You press submit. |
+| 4 | LinkedIn Prefill | Twice on weekdays | Searches Easy Apply roles for each title you target, scores them out of 100, fills in every one scoring 70+ with your answer-sheet details and the CV on your LinkedIn account, and saves it. You open Saved jobs on LinkedIn, check it, and click Submit. |
 | 5 | Inbox Watch | Twice daily | Reads your email for interview invites, assessment links, and recruiter questions, computes what expires when, drafts replies, and emails you only when something needs action |
 | 6 | Weekly Review | Sunday morning | Reconciles the pipeline, audits for duplicates and untailored applications, compares reply rates by role family and by source, and tells you what to retire |
 
@@ -83,7 +83,7 @@ Step 1 is the one that matters. It asks you to name at most two role families an
 
 ## After setup
 
-You get one email each morning when there is something to report: new roles ready, what went out yesterday, and anything waiting on you. No email means nothing needed you. Inbox Watch emails separately, and only when a reply or a test link needs action.
+You get one email each morning when there is something to report: new roles ready, what went out yesterday, and anything waiting on you. No email means nothing needed you. Inbox Watch emails separately, and only when a reply or a test link needs action. LinkedIn Prefill emails after a run that saved roles for you.
 
 Things you can say to Claude in this folder any time:
 
@@ -94,6 +94,7 @@ Things you can say to Claude in this folder any time:
 | "the roles look wrong" | Claude retunes the searches and the scoring |
 | "make my search cheaper" | Fewer searches and fetches, in order of savings |
 | "switch to automatic" | Apply runs stop waiting for your tick |
+| "LinkedIn automatic" | LinkedIn Prefill submits complete forms itself, after you confirm the risk |
 | "I got an interview at <company>" | The sheet updates, and Claude offers to prepare you |
 
 ## What it costs
@@ -113,14 +114,14 @@ These are built into every task and are worth knowing before you turn anything o
 - **Daily and per-run caps.** A maximum number of applications per run and per day, set during setup. An empty run is a correct result.
 - **A fourteen-day company cooldown.** One company receives at most one application per fortnight.
 - **No generic CVs on company sites.** A company-site role without a tailored CV gets skipped and reported, never sent a default file. LinkedIn Easy Apply uses the CV on your LinkedIn account.
-- **No LinkedIn automation past the final click.** LinkedIn's user agreement prohibits automated interaction and their detection restricts accounts that do it. Task 4 prepares, then stops.
+- **LinkedIn stops before the final click unless you opt in.** LinkedIn's user agreement prohibits automated interaction and their detection restricts accounts that do it. By default task 4 fills and saves, and you submit.
 - **Hard search caps.** Every task states its exact call count and credit ceiling. A task that finds nothing logs that and exits.
 
 ### On LinkedIn automation
 
-LinkedIn's User Agreement prohibits automated applying, and that applies to locally-run browser tools as much as to anything in the cloud. This kit prepares everything and stops at the submit button, which you press.
+LinkedIn's User Agreement prohibits automated applying, and that applies to locally-run browser tools as much as to anything in the cloud. By default this kit fills in every Easy Apply form that scores 70 or above, saves the job, and leaves the submit button to you. Open Saved jobs on LinkedIn whenever you have a few minutes, check each one, and click Submit.
 
-That is not a technical limitation we could not get past. Accounts get restricted for automated activity, and losing your LinkedIn mid-search costs you far more than the seconds you saved. The forms are filled before you sit down, so your part is one click per application.
+The task on your computer can click Submit for you. Say "LinkedIn automatic" during setup or later, and it submits the forms it could fill in completely, up to your daily cap, and saves the rest for you. Claude states the risk once and asks you to confirm before turning it on. Accounts get restricted for automated activity, and losing your LinkedIn mid-search costs you far more than the minutes you save. If it happens, say "my LinkedIn got restricted" and Claude stops the LinkedIn task.
 
 If you modify this to auto-submit, that is your account and your call, and it is not what this kit does.
 
@@ -130,7 +131,7 @@ It does not submit anything you have not approved, unless you turn on automatic 
 
 It removes the hours between deciding to apply and having applied. That is the whole product.
 
-If you would rather not tick each application, choose automatic submission during setup, or say "switch to automatic" later. The apply run then does the final click for you on company job boards, within your caps. LinkedIn stays manual either way.
+If you would rather not tick each application, choose automatic submission during setup, or say "switch to automatic" later. The apply run then does the final click for you on company job boards, within your caps. LinkedIn has its own opt-in, described above.
 
 ## Using this with Codex or another agent
 

@@ -41,9 +41,23 @@ or a password. Apply from the URL yourself and type `done`.
 ## I'm getting too many emails
 
 The kit sends one email each morning, plus inbox watch alerts when something
-needs action, plus LinkedIn prefill notices on evenings it prepared something.
+needs action, plus a LinkedIn prefill notice after a run that saved roles for
+you.
 More than that means a task prompt predates the one-email design. Say "update
 my tasks" and Claude re-fills them from the current templates.
+
+## LinkedIn saved jobs open with empty answers
+
+LinkedIn Prefill saves each filled application before it closes the Easy Apply
+window. If a saved job opens with the answers gone, LinkedIn discarded the
+draft. The job is still in Saved jobs and its Pipeline row still has the
+score, so apply from there with your answer sheet to hand.
+
+## My LinkedIn account got restricted
+
+Say "my LinkedIn got restricted". Claude switches LinkedIn back to "you click"
+and turns the LinkedIn task off until you say the restriction is lifted. The
+other five tasks carry on.
 
 ## Search credits are burning faster than expected
 

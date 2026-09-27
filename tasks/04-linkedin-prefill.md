@@ -3,9 +3,7 @@
 Fill every `{{PLACEHOLDER}}`, then create a scheduled task whose prompt is
 everything below the line.
 
-**Schedule:** per the grid in `setup/05-schedule.md`. Off at light intensity.
-Evening by default, so the prefilled forms are waiting when the person gets to
-the computer.
+**Schedule:** twice on weekdays, per the grid in `setup/05-schedule.md`.
 **Name it:** `Job Search - LinkedIn Prefill ({{TIMES}} {{TZ}})`
 **Requires:** a browser connector, with LinkedIn logged in.
 **Runs on:** the person's own computer. Create this as a task that requires that
@@ -14,10 +12,10 @@ and looks like a quiet day rather than a broken task.
 
 **Read this before you create it.** LinkedIn's user agreement prohibits
 automated interaction, and their detection restricts accounts that do it. An
-account restriction in the middle of a job search is expensive. This task
-prepares applications and leaves the final click to the person. Every version
-of this prompt must keep that boundary. Say so to the person before creating
-it, and let them decline.
+account restriction in the middle of a job search is expensive. By default this
+task fills each application, saves it, and leaves the final click to the
+person. `{{LINKEDIN_SUBMIT_RULE}}` carries their choice from step 1. Use the
+automatic text only if they asked for it by name after hearing that risk.
 
 ---
 
@@ -25,34 +23,42 @@ LinkedIn Easy Apply preparation for {{NAME}}. Requires the browser open with
 LinkedIn logged in. If the browser is unreachable, stop immediately and say so.
 Do not retry.
 
-HOW THIS TASK WORKS: it fills every field and then stops. Never click Submit,
-never click Send application, and never advance past the final review screen.
-
 WHO THEY ARE: {{CURRENT_ROLE}}. {{YEARS}} years of experience. Based in {{CITY}}. {{DEADLINE_LINE}}
 {{BACKGROUND}}
 
-1. Read the Google Doc "{{ANSWER_SHEET_DOC}}". Open the Pipeline tab of
-   Google Sheet "{{SHEET_NAME}}".
+SUBMITTING: {{LINKEDIN_SUBMIT_RULE}}
+
+1. Read the Google Doc "{{ANSWER_SHEET_DOC}}". Open the Pipeline and Log tabs
+   of Google Sheet "{{SHEET_NAME}}". Note when the previous LinkedIn Prefill
+   run started, from its Log row.
 
    CATCH UP. Open LinkedIn's list of jobs they have applied to. For every
    Pipeline row at Status "Prefilled" with Source "LinkedIn Easy Apply" that
    appears there, set Status to "Applied" and Date applied to the date
    LinkedIn shows. The person pressed submit since the last run.
 
-2. Search LinkedIn Jobs, filtered to Easy Apply, posted in the last 24 hours,
-   located {{LOCATIONS}} in that order:
+2. SEARCH. Run one LinkedIn Jobs search for each title below, one title at a
+   time, filtered to Easy Apply and posted in the past week, located
+   {{LOCATIONS}}:
    - {{FAMILY_A_TITLES}}
    - {{FAMILY_B_TITLES}}
 
+   Keep only postings listed after the previous run started. An earlier run
+   already scored the rest. With no previous run in the Log, keep the last 24
+   hours.
+
 3. FILTER OUT before opening anything:
 {{AUTOFAILS}}
-   - any role already in the Pipeline tab at a Status other than "Shortlisted"
-     or "Tailored"
-   - any company that received an application in the last 14 days
+   - any role already in the Pipeline tab, matched by job URL or by company
+     and title, whatever its Status. A role found on a company site gets a
+     tailored CV through the apply run instead.
+   - any company that received an application in the last 14 days, or that
+     already has a role at "Prefilled", so a second saved role cannot break
+     the 14-day company cooldown
 
-4. SCORE. Open at most 10 of the remaining postings, newest first, and read
-   each job description. Score each out of 100 with the same rubric the
-   morning sweep uses:
+4. SCORE. For each title, open at most {{LINKEDIN_READ_CAP}} of the remaining
+   postings, newest first, and read each job description. Score each out of
+   100 with the same rubric the morning sweep uses:
    - Years required falls inside {{YEARS_BAND}}: 25
    - Overlap with their skills and tools: 25
    - Location is one of {{LOCATIONS}}: 20
@@ -64,26 +70,35 @@ WHO THEY ARE: {{CURRENT_ROLE}}. {{YEARS}} years of experience. Based in {{CITY}}
    70, write the Log row and stop. An empty run is correct. Never lower the
    bar to fill the run.
 
-5. PREFILL at most 5 of the roles scoring 70 or above, highest score first.
-   For each, open the Easy Apply flow and fill every field from the answer
-   sheet.
+5. FILL every role scoring 70 or above, highest score first. Click Easy Apply
+   and fill every field from the answer sheet: contact details, current and
+   expected compensation, notice period and earliest joining date, location
+   and relocation, work authorisation, years of experience, and the
+   screening questions.
+
    CV: use the CV already saved on their LinkedIn account. Keep the one the
    form selects, or pick the most recent if it selects none. Never upload,
    build or tailor a CV here. Tailored CVs are for applications on company
    sites, which the apply run handles.
 
-6. Leave each one on the final review screen, unsubmitted. Do not close the
-   tabs. Record each in the Pipeline tab with Status "Prefilled", its score,
-   Source "LinkedIn Easy Apply", Source tier 3, CV file "LinkedIn profile
-   CV", and the job URL. Update the row if the role is already there. Without
-   this, the dedupe and the weekly review never see LinkedIn applications.
-
-7. Leave a field blank and flag it when:
+   Leave a field blank and flag it when:
    - the answer sheet does not cover it
    - relocation outside {{LOCATIONS}} is asked
    - a figure below {{FLOOR}} would be needed
    Relocation questions about {{CITY}} are not blockers. Answer "I am based in
    {{CITY}}".
+
+6. FINISH each one as SUBMITTING says. To save one for the person: go through
+   to the final review screen, close the Easy Apply window, and choose Save
+   when LinkedIn asks whether to save the application, so the filled answers
+   are kept. Then click Save on the job posting itself, so it appears in their
+   Saved jobs. A saved role is never submitted by this task.
+
+7. RECORD each in the Pipeline tab with its score, Source "LinkedIn Easy
+   Apply", Source tier 3, CV file "LinkedIn profile CV", and the job URL.
+   Status "Prefilled" for a saved role. Status "Applied" with today's date for
+   a submitted one. Without these rows, the dedupe and the weekly review never
+   see LinkedIn applications.
 
 8. If a role also has a posting on the company's own board or an applicant
    tracking system, note it so they can apply there instead. Easy Apply has the
@@ -91,10 +106,11 @@ WHO THEY ARE: {{CURRENT_ROLE}}. {{YEARS}} years of experience. Based in {{CITY}}
    applicant.
 
 9. Append a row to the Log tab. Count the postings you read under Pages
-   fetched.
+   fetched, and submissions under Applications.
 
-10. REPORT by email to {{EMAIL}} only if this run prefilled at least one
-    role. Subject "LinkedIn - <N> ready for your click". List them by
-    company, role and score, with the tab each is in, plus any fields left
-    blank and why. Remind them these expire with the browser session. If
-    nothing was prefilled, send nothing.
+10. REPORT by email to {{EMAIL}} only if this run saved or submitted at least
+    one role. Subject "LinkedIn - <N> saved for you, <M> sent". List each by
+    company, role and score. For each saved role, name any field left blank
+    and why. Tell them the saved roles are in Saved jobs under My jobs on
+    LinkedIn: open each, check the answers, and click Submit. If nothing was
+    saved or sent, send nothing.

@@ -11,7 +11,8 @@ Report, in this order and in under fifteen lines:
 2. This week: roles found, roles scoring 70+, applications sent, replies.
 3. Anything waiting on them right now: rows at `Needs you` with their
    question, rows at `Tailored` waiting for an Approve tick if they approve
-   each application, and replies with what expires when. Lead with this if
+   each application, rows at `Prefilled` waiting in their LinkedIn Saved
+   jobs, and replies with what expires when. Lead with this if
    anything is expiring inside 48 hours.
 4. Reply rate by family, and by source, with the sample size for each.
 5. One recommendation, only if the data supports one.

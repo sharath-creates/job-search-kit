@@ -78,16 +78,22 @@ shareable with nothing personal in it.
 `me/` is gitignored so the fork a person publishes carries no salary floor and
 no email address.
 
-## Six tasks, five of which never touch a submit button
+## Two tasks can submit, and both default to asking first
 
-Only the apply run submits, and it stops on six named conditions. By default
-it submits only the roles the person ticked in the sheet. Setup offers
-automatic submission within the caps as an opt-in, for people who would rather
-not tick. The LinkedIn task never submits at all, because LinkedIn's user
-agreement prohibits automated interaction and their detection restricts
-accounts that do it. The boundary is stated in the template itself rather than
-left to the agent's discretion, so a person editing the prompt sees why it is
-there.
+The apply run submits on company sites, and it stops on six named conditions.
+By default it submits only the roles the person ticked in the sheet. Setup
+offers automatic submission within the caps as an opt-in, for people who would
+rather not tick.
+
+LinkedIn Prefill fills in every Easy Apply form that scores 70 or above, then
+saves the application and the job, so the person reviews and submits from
+their Saved jobs at any time. LinkedIn's user agreement prohibits automated
+interaction and their detection restricts accounts that do it, so automatic
+LinkedIn submission is a separate opt-in. The person asks for it by name,
+hears the risk, and confirms. It then submits only forms filled in completely
+from the answer sheet, under its own daily cap. The boundary is stated in the
+template itself rather than left to the agent's discretion, so a person
+editing the prompt sees why it is there.
 
 ## Tailoring is for company sites
 

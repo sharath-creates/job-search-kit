@@ -49,8 +49,8 @@ to "prefer not to say". Never infer any of these.
 > **Contact:** <phone>, <LinkedIn>, <portfolio>. <Name any that are missing.>
 > **Work:** notice <period>, so you can start <period> after an offer.
 > <Authorisation summary.>
-> **Money:** expected <figure>. If a form wants a range, <figure> to
-> <figure + 15%>. Never below <floor>.
+> **Money:** current CTC <figure, or "left for you">, expected <figure>. If
+> a form wants a range, <figure> to <figure + 15%>. Never below <floor>.
 >
 > **Why this role** (I fill in the company part for each job):
 > <draft>

@@ -89,7 +89,8 @@ DO NOT APPLY TO ANYTHING. This task finds, scores, tailors and records only.
    - WAITING ON YOU: every row with Status "Needs you", with its Question for
      you cell, and a reminder that typing an answer in Your answer lets the
      next apply run finish it. Then one line counting older rows still at
-     "Tailored".
+     "Tailored", and one counting rows at "Prefilled" that sit in their
+     LinkedIn Saved jobs waiting for their click.
    Subject "Job search <date> - N ready, M sent, K need you". Add one line
    with credits used this month and the sheet link. If READY, SENT and
    WAITING ON YOU are all empty, send nothing. Silence is a valid outcome.

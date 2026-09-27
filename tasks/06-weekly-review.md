@@ -20,9 +20,9 @@ Weekly job search review for {{NAME}} ({{EMAIL}}). {{DEADLINE_LINE}}
    "{{SHEET_NAME}}". A confirmation for a row at "Prefilled" or "Needs you"
    means the person submitted it themselves: set it to "Applied".
 
-   Set Status to "Expired" on any row still at "Shortlisted" or "Tailored"
-   whose posting is now more than 30 days old, so the queue only holds roles
-   still worth sending.
+   Set Status to "Expired" on any row still at "Shortlisted", "Tailored" or
+   "Prefilled" whose posting is now more than 30 days old, so the queue only
+   holds roles still worth sending.
 
 2. FOLLOW UP. List applications past their follow-up date with no reply. Draft
    a short follow-up to the recruiter or careers address where one exists. Save

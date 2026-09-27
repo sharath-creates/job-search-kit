@@ -79,6 +79,13 @@ Every task in this kit sends nothing when it finds nothing. Composing and
 sending a "no results today" email costs tokens and trains the person to ignore
 the inbox.
 
+### 7. Cap LinkedIn reads per title
+LinkedIn Prefill reads postings in the browser. That costs no search credits,
+but each read costs about as much as a scoring fetch, and the task reads per
+title, twice a day. A long title list multiplies it. `{{LINKEDIN_READ_CAP}}`
+is the lever, and the rule that each run skips postings the previous run
+already saw keeps most runs well under it.
+
 ---
 
 ## What not to cut

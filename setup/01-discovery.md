@@ -113,13 +113,14 @@ Never propose these numbers. Ask for them.
 > Now money and timing. Application forms ask for these, so I need your
 > figures:
 >
-> 1. The lowest total compensation you'd accept. One number. I'll never let a
->    task apply below it, and I'll never put a figure on a form that
+> 1. The lowest total compensation (CTC) you'd accept. One number. I'll never
+>    let a task apply below it, and I'll never put a figure on a form that
 >    undercuts you.
-> 2. The figure you'd ask for, when a form wants a single expected number.
-> 3. Your current total compensation, if you're happy to state it. "Skip" is
->    fine.
-> 4. Your notice period.
+> 2. Your expected CTC, for forms that want a single number.
+> 3. Your current CTC. Most forms ask for it, LinkedIn's included. If you'd
+>    rather not state it, say "skip" and I'll leave that field for you.
+> 4. Your notice period. I'll give your earliest joining date as that long
+>    after an offer.
 >
 > For interview calls I'll offer weekdays before 10:00 and after 18:30. Tell me
 > if other windows suit you better.
@@ -149,8 +150,8 @@ Propose the defaults, built from what they have told you:
 If step 0 found a browser connector, add this to the same message:
 
 > Two of the six tasks fill in application forms in Chrome on this computer,
-> so it needs to stay on during the day. Want them? If yes, pick how they
-> submit:
+> so it needs to stay on during the day. Want them? If yes, pick how
+> applications on company sites go out:
 >
 > - **You approve (recommended).** Each morning's email lists the roles I've
 >   prepared, with a tailored CV for each. Tick the ones you want in the
@@ -160,6 +161,12 @@ If step 0 found a browser connector, add this to the same message:
 >
 > Either way, a form question your answer sheet doesn't cover stops that
 > application and asks you in the sheet.
+>
+> On LinkedIn, I fill in every Easy Apply form that scores 70 or above, twice
+> a day, and save the job. You open Saved jobs on LinkedIn, check the answers,
+> and click Submit. I can click Submit for you instead, but LinkedIn's user
+> agreement bans automated applying, and accounts get restricted for it. Say
+> "LinkedIn automatic" only if you accept that risk.
 
 If step 0 found no browser connector, say instead:
 
@@ -167,8 +174,10 @@ If step 0 found no browser connector, say instead:
 > browser from here, so I'll leave them off. You can add them later by saying
 > "turn on apply runs".
 
-Record the level, whether they want the browser tasks, and the submission mode.
-Step 5 turns them into schedules and caps.
+Record the level, whether they want the browser tasks, the submission mode,
+and the LinkedIn mode. LinkedIn stays "you click" unless they said "LinkedIn
+automatic" in those words or close to them. Step 5 turns all of this into
+schedules and caps.
 
 ---
 
@@ -225,6 +234,7 @@ Calibration companies: <list>
 - Applications per day:
 - Browser tasks: <yes / no>
 - Submission: <you approve / automatic / not applicable>
+- LinkedIn: <you click / automatic / not applicable>
 ```
 
 ---
